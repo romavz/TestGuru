@@ -1,5 +1,7 @@
 
-# Белый список локалей, доступных приложению
-I18n.available_locales = [:en, :ru]
-# устанавливаем локаль по умолчанию на что-либо другое, чем :en
-I18n.default_locale = :ru
+module TestGuru
+  class Application < Rails::Application
+    I18n.available_locales = [:en, :ru]
+    I18n.default_locale = :ru
+  end
+end
