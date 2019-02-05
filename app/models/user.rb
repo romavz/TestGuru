@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  has_many :user_tests
+  has_many :tests, through :user_tests
+  has_many :owned_tests, class_name: "Test"
 
   def test_passages(test_level)
     Test.joins("
