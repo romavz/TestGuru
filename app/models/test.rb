@@ -11,13 +11,8 @@ class Test < ApplicationRecord
   has_many :users, through: :user_tests, dependent: :destroy
 
   def self.take_titles_by_category(title)
-    self.joins("
-      INNER JOIN categories
-        ON tests.category_id = categories.id
-    ").
-    where(
-      categories: { title: title }
-    ).
+    self.joins(:category).
+    where(categories: { title: title }).
     order(title: :desc).
     pluck(:title)
   end
