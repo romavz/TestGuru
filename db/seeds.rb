@@ -24,13 +24,13 @@ users = User.create!(
 
 tests = Test.create!(
   [
-    { level: 3, category: categories[0], title: "Первые китайские государства" },
-    { level: 2, category: categories[0], title: "Древний Рим" },
-    { level: 3, category: categories[0], title: "Начало Греко-Персидских войн" },
-    { level: 0, category: categories[1], title: "Города и страны" },
-    { level: 1, category: categories[1], title: "Горы" },
-    { level: 2, category: categories[1], title: "Реки" },
-    { level: 1, category: categories[2], title: "Язык SQL" }
+    { level: 3, category: categories[0], author: users[0], title: "Первые китайские государства" },
+    { level: 2, category: categories[0], author: users[0], title: "Древний Рим" },
+    { level: 3, category: categories[0], author: users[0], title: "Начало Греко-Персидских войн" },
+    { level: 0, category: categories[1], author: users[0], title: "Города и страны" },
+    { level: 1, category: categories[1], author: users[0], title: "Горы" },
+    { level: 2, category: categories[1], author: users[0], title: "Реки" },
+    { level: 1, category: categories[2], author: users[0], title: "Язык SQL" }
   ]
 )
 
