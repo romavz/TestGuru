@@ -8,9 +8,9 @@ class Test < ApplicationRecord
 
   def self.take_titles_by_category(title)
     joins(:category)
-    .where(categories: { title: title })
-    .order(title: :desc)
-    .pluck(:title)
+      .where(categories: { title: title })
+      .order(title: :desc)
+      .pluck(:title)
   end
 
 end
