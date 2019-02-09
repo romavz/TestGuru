@@ -6,6 +6,10 @@ class Test < ApplicationRecord
   has_many :user_tests, dependent: :destroy
   has_many :users, through: :user_tests, dependent: :destroy
 
+  scope :easy, -> { where(level: [0..1]) }
+  scope :medium, -> { where(level: [2..4]) }
+  scope :hard, -> {where(level: [5..Float::INFINITY] )  }
+
   def self.take_titles_by_category(title)
     joins(:category)
       .where(categories: { title: title })
