@@ -8,13 +8,16 @@ class Test < ApplicationRecord
 
   scope :easy, -> { where(level: [0..1]) }
   scope :medium, -> { where(level: [2..4]) }
-  scope :hard, -> {where(level: [5..Float::INFINITY] )  }
+  scope :hard, -> { where(level: [5..Float::INFINITY]) }
+
+  scope :select_by_category, -> (title) {
+    joins(:category)
+    .where(categories: { title: title })
+    .order(title: :desc)
+  }
 
   def self.take_titles_by_category(title)
-    joins(:category)
-      .where(categories: { title: title })
-      .order(title: :desc)
-      .pluck(:title)
+    select_by_category(title).pluck(:title)
   end
 
 end
