@@ -16,9 +16,9 @@ categories = Category.create!(
 
 users = User.create!(
   [
-    { name: "Admin", nick_name: "Admin" },
-    { name: "User B", nick_name: "nick User B" },
-    { name: "User C", nick_name: "nick User C" }
+    { name: "Admin", nick_name: "Admin", email: "admin@mamail.ru" },
+    { name: "User B", nick_name: "nick User B", email: "userb@mamail.ru" },
+    { name: "User C", nick_name: "nick User C", email: "userc@mamail.ru" }
   ]
 )
 
