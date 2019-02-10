@@ -1,5 +1,5 @@
 class Answer < ApplicationRecord
-  MAX_ANSWERS_BY_QUESTION = 4.freeze
+  MAX_ANSWERS_BY_QUESTION = 4
   ANSWER_LIMIT_ERROR_MESSAGE = "Лимит ответов на один вопрос: #{MAX_ANSWERS_BY_QUESTION}".freeze
 
   belongs_to :question
@@ -12,7 +12,9 @@ class Answer < ApplicationRecord
   private
 
   def validate_answers_limit_for_question
-    errors.add(:base, ANSWER_LIMIT_ERROR_MESSAGE) if question.answers.count >= 4
+    return if question.answers.count < MAX_ANSWERS_BY_QUESTION
+
+    errors.add(:base, ANSWER_LIMIT_ERROR_MESSAGE)
   end
 
 end

@@ -6,7 +6,7 @@ class User < ApplicationRecord
   validates :email, presence: true
 
   def test_passages(test_level)
-    tests.merge(test_level)
+    tests.where(level: test_level)
   end
 
 end
