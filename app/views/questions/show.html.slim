@@ -1,0 +1,7 @@
+h1 Тест: #{@test_title}
+h3 Вопрос: #{@question_text}
+
+div
+  ul
+    - @answers.each do |answer|
+      li= answer.body

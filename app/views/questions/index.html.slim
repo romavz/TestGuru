@@ -1,0 +1,19 @@
+h1 = "Список вопросов теста: #{@test_title}"
+
+<table>
+  thead
+    tr
+      th = "Вопрос"
+      th colspan = "4"
+
+  tbody
+    - @questions.each do |question|
+      tr
+        td = question.body
+        td = link_to "Show", question
+        /td = link_to "Edit", edit_question_path(question)
+        td = link_to "Destroy", question, method: :delete, data: { confirm: "Вы уверены?" }
+</table>
+
+br
+=link_to "Новый вопрос", new_test_question_path
