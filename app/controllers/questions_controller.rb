@@ -5,23 +5,24 @@ class QuestionsController < ApplicationController
   before_action :load_question, only: %i[show edit update destroy]
 
   def index; end
+
   def show; end
+
   def new; end
 
   def create
     question_body = params[:question][:body]
-    redirect_to test_questions_path if question_body.empty?
-
-    Question.create( test: @test, body: question_body )
-    redirect_to test_questions_path
+    Question.create(question_params)
+    redirect_to test_questions_path(@test)
   end
 
   def edit; end
+
   def update; end
 
   def destroy
     @question.destroy
-    redirect_to test_questions_path(@question.test_id)
+    redirect_to test_questions_path(@question.test)
   end
 
   private
@@ -36,6 +37,10 @@ class QuestionsController < ApplicationController
 
   def rescue_with_record_not_found
     render plain: 'Запись не найдена'
+  end
+
+  def question_params
+    params.require(:question).permit(:test_id, :body)
   end
 
 end
