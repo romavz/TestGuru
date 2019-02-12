@@ -1,7 +1,7 @@
-h1 Тест: #{@test_title}
-h3 Вопрос: #{@question_text}
+h1 Тест: #{@test.title}
+h3 Вопрос: #{@question.body}
 
 div
   ul
-    - @answers.each do |answer|
+    - @question.answers.each do |answer|
       li= answer.body
