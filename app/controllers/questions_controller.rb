@@ -4,16 +4,25 @@ class QuestionsController < ApplicationController
   before_action :load_test, only: %i[index new create]
   before_action :load_question, only: %i[show edit update destroy]
 
-  def index; end
+  def index
+    redirect_to test_path(@test)
+  end
 
-  def show; end
+  def show
+    @test = @question.test
+  end
 
-  def new; end
+  def new
+    @question = Question.new
+  end
 
   def create
-    question_body = params[:question][:body]
-    Question.create(question_params)
-    redirect_to test_questions_path(@test)
+    @question = Question.new(question_params)
+    if @question.save
+      redirect_to test_path(@test)
+    else
+      render :new
+    end
   end
 
   def edit; end
@@ -22,7 +31,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to test_questions_path(@question.test)
+    redirect_to test_path(@question.test)
   end
 
   private

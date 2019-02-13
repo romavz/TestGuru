@@ -25,6 +25,6 @@ class TestsController < ApplicationController
   private
 
   def load_test
-    @test = Test.find(params[:test_id])
+    @test = Test.find(params[:id])
   end
 end

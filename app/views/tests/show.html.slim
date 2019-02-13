@@ -1,2 +1,21 @@
-h1 Tests#show
-p Find me in app/views/tests/show.html.slim
+h1 Тест: #{@test.title}
+br
+.
+  = link_to "Новый вопрос", new_test_question_path(@test)
+br
+<table>
+  thead
+    tr
+      th { align="left" } = "Вопросы"
+      th { colspan = "3" } = "действия"
+
+  tbody
+    - @test.questions.each do |question|
+      tr
+        td = question.body
+        td = link_to "Show", question_path(question)
+        td = link_to "Edit", edit_question_path(question)
+        td = link_to "Destroy", question, method: :delete, data: { confirm: "Вы уверены?" }
+</table>
+
+br
