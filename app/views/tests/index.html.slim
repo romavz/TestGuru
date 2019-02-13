@@ -1,2 +1,13 @@
-h1 Tests#index
+h1 Tests
 p Find me in app/views/tests/index.html.slim
+
+table
+  thead
+    tr
+      th Title
+      th Level
+      th Category
+      th { colspan="3" } Actions
+
+  tbody
+    = render @tests

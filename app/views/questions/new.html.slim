@@ -1,20 +1,3 @@
-h1 Тест: #{@test.title}
-h3 Новый вопрос
+h1 New question
 
-div
-  = form_with model:[@test, @question], local: true do |f|
-    div
-      - if @question.errors.present?
-        h3
-          => pluralize(@question.errors.count, "error")
-          | detected:
-        ul
-          - @question.errors.full_messages.each do |message|
-            li
-              = message
-
-    div
-      = f.label :text, "Текст "
-      = f.text_field :body, size: 80
-    div
-      = f.submit
+== render 'form', model: [@test, @question], resource: @question

@@ -1,0 +1,19 @@
+
+h3 Test: #{@test.title}
+div
+  = form_with model: model, local: true do |f|
+    div
+      - if resource.errors.present?
+        h3
+          => pluralize(resource.errors.count, "error")
+          | detected:
+        ul
+          - resource.errors.full_messages.each do |message|
+            li = message
+
+    div
+      = f.hidden_field :test_id
+      = f.label :text, "Text "
+      = f.text_field :body, size: 80
+    div
+      = f.submit

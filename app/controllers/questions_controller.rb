@@ -8,12 +8,10 @@ class QuestionsController < ApplicationController
     redirect_to test_path(@test)
   end
 
-  def show
-    @test = @question.test
-  end
+  def show;  end
 
   def new
-    @question = Question.new
+    @question = Question.new(test_id: @test.id)
   end
 
   def create
@@ -27,7 +25,14 @@ class QuestionsController < ApplicationController
 
   def edit; end
 
-  def update; end
+  def update
+    if @question.update(question_params)
+      redirect_to @question
+    else
+      render :edit
+    end
+
+  end
 
   def destroy
     @question.destroy
@@ -42,6 +47,7 @@ class QuestionsController < ApplicationController
 
   def load_question
     @question = Question.find(params[:id])
+    @test = @question.test
   end
 
   def rescue_with_record_not_found
