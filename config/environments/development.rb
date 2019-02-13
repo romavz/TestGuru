@@ -1,4 +1,7 @@
 Rails.application.configure do
+  # Indent html for pretty debugging and do not sort attributes
+  Slim::Engine.set_options pretty: true, sort_attrs: false, tabsize: 2
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
