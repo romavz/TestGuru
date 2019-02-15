@@ -20,7 +20,12 @@ class TestsController < ApplicationController
     end
   end
 
-  def edit;  end
+  def edit
+    logger.info "-----------------------"
+    logger.info "test: #{@test.attributes.inspect}"
+    logger.info "author.name:  #{@test.author.name}"
+    logger.info "-----------------------"
+  end
 
   def update
     if @test.update(test_params)
@@ -38,6 +43,10 @@ class TestsController < ApplicationController
   private
 
   def load_test
+#    @test = Test.includes(:category, :author)
+#            .where(tests: { id: params[:id] })
+#            .first
+
     @test = Test.find(params[:id])
   end
 
