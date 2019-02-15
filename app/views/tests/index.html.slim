@@ -1,5 +1,4 @@
 h1 Tests
-p Find me in app/views/tests/index.html.slim
 
 table
   thead
@@ -11,3 +10,6 @@ table
 
   tbody
     = render @tests
+
+div
+  = link_to "Add test", new_test_path

@@ -11,7 +11,7 @@ class QuestionsController < ApplicationController
   def show;  end
 
   def new
-    @question = @test.questions.new()
+    @question = Question.new()
   end
 
   def create

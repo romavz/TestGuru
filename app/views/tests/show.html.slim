@@ -2,14 +2,13 @@ p Title: #{@test.title}
 p Level: #{@test.level}
 
 div
-  => link_to "Edit", edit_test_path(@test)
-  | |
   =< link_to "Back", tests_path
+  | |
+  => link_to "Edit", edit_test_path(@test)
 
 br
 
 h3 Questions
-br
 <table>
   thead
     tr
