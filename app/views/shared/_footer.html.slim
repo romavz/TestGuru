@@ -1,0 +1,12 @@
+br
+div#footer
+  - current_year = DateTime.now.to_s(:only_year)
+  div
+    .copyright Copyright (c) #{current_year} Copyright Holder All Rights Reserved.
+    .author Author: Roman Zimovets
+    .project
+      | Project source:
+      =< link_to "TestGuru", "https://github.com/romavz/TestGuru"
+    .about_project About: некоторое описание проекта
+    .
+      = link_to "Учебный проект в онлайн-школе Thinknetica", "http://thinknetica.com/"
