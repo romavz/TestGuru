@@ -11,11 +11,11 @@ class QuestionsController < ApplicationController
   def show;  end
 
   def new
-    @question = Question.new(test_id: @test.id)
+    @question = @test.questions.new()
   end
 
   def create
-    @question = Question.new(question_params)
+    @question = @test.questions.new(question_params)
     if @question.save
       redirect_to test_path(@test)
     else
@@ -55,7 +55,7 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(:question).permit(:test_id, :body)
+    params.require(:question).permit(:body)
   end
 
 end
