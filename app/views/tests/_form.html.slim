@@ -7,9 +7,9 @@ div.edit_form
     = render 'shared/errors', resource: resource
 
     div
-    = f.label :author
-    | :
-    = author_name(resource)
+      = f.label :author
+      | :
+      =< author_name(resource)
 
     div
       = f.label :title
