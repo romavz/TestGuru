@@ -15,6 +15,8 @@ module TestGuru
     # locale в файле initializers/locale.rb
     # version в файле initializers/version.rb
 
+    Time::DATE_FORMATS[:only_year] = "%Y"
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading

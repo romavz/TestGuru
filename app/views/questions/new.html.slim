@@ -1,8 +1,2 @@
-h1 Тест: #{@test.title}
-h3 Новый вопрос
 
-
-= form_for :question, url: test_questions_path do |f|
-  = f.label :text, "Текст"
-  = f.text_field :body, size: 80
-  = f.submit "Создать"
+== render 'form', model: [@test, @question], resource: @question

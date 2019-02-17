@@ -1,6 +1,13 @@
 h1 Тест: #{@test.title}
-h3 Вопрос: #{@question.body}
 
+div
+  =< link_to "Back", tests_path
+  | |
+  => link_to "Edit", edit_question_path(@question)
+br
+
+h3 Вопрос: #{@question.body}
+br
 div
   ul
     - @question.answers.each do |answer|

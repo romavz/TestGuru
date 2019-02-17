@@ -1,28 +1,42 @@
 class QuestionsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_record_not_found
 
-  before_action :load_test, only: %i[index new create]
+  before_action :load_test, only: %i[new create]
   before_action :load_question, only: %i[show edit update destroy]
 
-  def index; end
-
-  def show; end
-
-  def new; end
-
-  def create
-    question_body = params[:question][:body]
-    Question.create(question_params)
-    redirect_to test_questions_path(@test)
+  def show
+    @test = @question.test
   end
 
-  def edit; end
+  def new
+    @question = Question.new
+  end
 
-  def update; end
+  def create
+    @question = @test.questions.new(question_params)
+    if @question.save
+      redirect_to test_path(@test)
+    else
+      render :new
+    end
+  end
+
+  def edit
+    @test = @question.test
+  end
+
+  def update
+    if @question.update(question_params)
+      redirect_to @question
+    else
+      render :edit
+    end
+
+  end
 
   def destroy
     @question.destroy
-    redirect_to test_questions_path(@question.test)
+    redirect_to test_path(@question.test)
   end
 
   private
@@ -40,7 +54,7 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(:question).permit(:test_id, :body)
+    params.require(:question).permit(:body)
   end
 
 end
