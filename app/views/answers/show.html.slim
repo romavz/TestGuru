@@ -1,0 +1,8 @@
+p#notice = notice
+
+div
+  = @answer.body
+
+=> link_to 'Edit', edit_answer_path(@answer)
+'|
+=< link_to 'Back', question_path(@question)
