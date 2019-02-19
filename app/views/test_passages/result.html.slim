@@ -1,0 +1,14 @@
+
+- if @test_passage.successfull?
+  - status      = "success"
+  - conclusion  = "Test completed successfull"
+- else
+  - status      = "fail"
+  - conclusion  = "Test fail"
+
+h1 class="test_#{status}"
+  = @test_passage.test.title
+  =< "#{conclusion} (#{@test_passage.correct_questions_ratio}%)"
+
+div
+  = link_to "Back", tests_path

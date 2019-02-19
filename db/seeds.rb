@@ -72,13 +72,3 @@ answers = Answer.create!(
     { correct: false, question: questions[0], body: "NEW" },
   ]
 )
-
-user_tests = UserTest.create!(
-  [
-    { user: users[1], test: tests[0], passed: true },
-    { user: users[1], test: tests[2], passed: false },
-    { user: users[2], test: tests[5], passed: false },
-    { user: users[2], test: tests[6], passed: true },
-    { user: users[2], test: tests[3], passed: true }
-  ]
-)

@@ -2,8 +2,8 @@ tr
   td = test.title
   td = test.level
   td = test.category.title
-  td = test.author.name
   td = test.questions.size
   td = link_to "Show", test_path(test)
   td = link_to "Edit", edit_test_path(test)
   td = link_to "Destroy", test, method: :delete, data: { confirm: "Are you shure?" }
+  td = button_to "Start", start_test_path(test)
