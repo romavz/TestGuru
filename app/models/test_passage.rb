@@ -15,7 +15,7 @@ class TestPassage < ApplicationRecord
     "#{current_question_number}/#{questions_count}"
   end
 
-  def question
+  def question_text
     current_question.body
   end
 
