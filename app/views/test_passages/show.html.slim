@@ -1,12 +1,12 @@
 h1  Passing the #{@test_passage.test.title} Test
 
 b
-  => test_progress(@test_passage)
-  = @test_passage.current_question.body
+  => "(#{@test_passage.progress})"
+  = @test_passage.question
 
 
 = form_with url: test_passage_path(@test_passage), local: true, method: :put do |form|
-  = form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b|
+  = form.collection_check_boxes :answer_ids, @test_passage.current_answers, :id, :body, include_hidden: false do |b|
     p
       = b.check_box id: "answer_ids_#{b.object.id}"
       = b.label

@@ -1,6 +1,7 @@
 
-h1 class==style(@test_passage.completed_successfull?)
-  = test_result(@test_passage)
+h1 class=(@test_passage.successfull? ? "test_success" : "test_fail")
+  = @test_passage.test.title
+  =< test_conclusion(@test_passage)
 
 div
   = link_to "Back", tests_path

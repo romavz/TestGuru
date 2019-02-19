@@ -6,11 +6,21 @@ class TestPassage < ApplicationRecord
   belongs_to :test
   belongs_to :current_question, class_name: "Question", optional: true
 
-  before_validation :before_validation_set_first_question, on: :create
-  before_update :before_update_set_next_question
+  before_validation :set_current_question
 
-  def current_question_number
-    test.questions.order(:id).where('id < ?', self.current_question.id).size + 1
+  def progress
+    current_question_number = questions.where('id < ?', self.current_question.id).size + 1
+    questions_count = test.questions.count
+
+    "#{current_question_number}/#{questions_count}"
+  end
+
+  def question
+    current_question.body
+  end
+
+  def current_answers
+    current_question.answers
   end
 
   def completed?
@@ -23,22 +33,30 @@ class TestPassage < ApplicationRecord
     save!
   end
 
-  def completed_successfull?
+  def successfull?
     correct_questions_ratio >= SUCCESS_PERCENT
   end
 
   def correct_questions_ratio
-    correct_questions*P100/test.questions.count
+    (correct_questions.to_f * P100 / test.questions.count).round(1)
   end
 
   private
 
-  def before_validation_set_first_question
-    self.current_question = test.questions.order(:id).first if test.present?
+  def questions
+    test.questions.order(:id)
   end
 
-  def before_update_set_next_question
-    self.current_question = test.questions.order(:id).where('id > ?', current_question.id).first
+  def set_current_question
+    self.current_question = next_question
+  end
+
+  def next_question
+    if new_record?
+      questions.first
+    else
+      questions.where('id > ?', current_question.id).first
+    end
   end
 
   def correct_answer?(answer_ids)
