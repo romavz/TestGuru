@@ -9,6 +9,10 @@ class TestPassage < ApplicationRecord
   before_validation :before_validation_set_first_question, on: :create
   before_update :before_update_set_next_question
 
+  def current_question_number
+    test.questions.order(:id).where('id < ?', self.current_question.id).size + 1
+  end
+
   def completed?
     current_question.nil?
   end

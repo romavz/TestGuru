@@ -13,4 +13,9 @@ module TestPassagesHelper
     "#{test_passage.test.title}
     #{CONCLUSION[test_passage.completed_successfull?]} (#{test_passage.correct_questions_ratio}%)"
   end
+
+  def test_progress(test_passage)
+    "(#{test_passage.current_question_number}/#{test_passage.test.questions.count})"
+  end
+
 end
