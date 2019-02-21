@@ -1,0 +1,8 @@
+header
+  div#project
+  div
+    nav
+      => link_to "register", signup_path
+      '|
+      =< link_to_unless logged_in?, "login", login_path do |name|
+        =< link_to "exit"

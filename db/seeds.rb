@@ -16,9 +16,9 @@ categories = Category.create!(
 
 users = User.create!(
   [
-    { name: "Admin", nick_name: "Admin", email: "admin@mamail.ru" },
-    { name: "User B", nick_name: "nick User B", email: "userb@mamail.ru" },
-    { name: "User C", nick_name: "nick User C", email: "userc@mamail.ru" }
+    { name: "Admin", nick_name: "Admin", email: "admin@mamail.ru", password: "12345" },
+    { name: "User B", nick_name: "nick User B", email: "userb@mamail.ru", password: "22345" },
+    { name: "User C", nick_name: "nick User C", email: "userc@mamail.ru", password: "32345" }
   ]
 )
 
@@ -43,8 +43,8 @@ questions = Question.create!(
     { test: tests[1], body: "Сколько царей было в древнем риме?" },
     { test: tests[2], body: "Когда случилось восстание в Миллете?" },
     { test: tests[2], body: "Когда произошло Марафонское сражение? " },
-    { test: tests[3], body: "Столица России"},
-    { test: tests[4], body: "Самая высокая гора кавказа"},
+    { test: tests[3], body: "Столица России" },
+    { test: tests[4], body: "Самая высокая гора кавказа" },
     { test: tests[5], body: "В какое море впадает Волга:" },
     { test: tests[6], body: "Каким запросом создается таблица" }
   ]
@@ -68,7 +68,7 @@ answers = Answer.create!(
     { correct: true, question: questions[8], body: "Эльбрус" },
     { correct: true, question: questions[9], body: "Каспийское море" },
     { correct: true, question: questions[10], body: "CREATE" },
-    { correct: false, question: questions[0], body: "INSERT" },
-    { correct: false, question: questions[0], body: "NEW" },
+    { correct: false, question: questions[10], body: "INSERT" },
+    { correct: false, question: questions[10], body: "NEW" }
   ]
 )

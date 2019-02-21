@@ -8,4 +8,8 @@ module ApplicationHelper
     link_to(repo_name, url)
   end
 
+  def flash_message
+    msg = flash[:alert]
+    content_tag :p, msg, class: 'flash alert' if msg.present?
+  end
 end
