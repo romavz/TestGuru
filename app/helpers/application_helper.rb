@@ -12,4 +12,8 @@ module ApplicationHelper
     msg = flash[:alert]
     content_tag :p, msg, class: 'flash alert' if msg.present?
   end
+
+  def app_name
+    "TestGuru"
+  end
 end

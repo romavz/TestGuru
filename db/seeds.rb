@@ -16,9 +16,9 @@ categories = Category.create!(
 
 users = User.create!(
   [
-    { name: "Admin", nick_name: "Admin", email: "admin@mamail.ru", password: "12345" },
-    { name: "User B", nick_name: "nick User B", email: "userb@mamail.ru", password: "22345" },
-    { name: "User C", nick_name: "nick User C", email: "userc@mamail.ru", password: "32345" }
+    { name: "Admin", nick_name: "Admin", email: "admin@mamail.ru", password: "12345", password_confirmation: "12345" },
+    { name: "User B", nick_name: "nick User B", email: "userb@mamail.ru", password: "22345", password_confirmation: "22345" },
+    { name: "User C", nick_name: "nick User C", email: "userc@mamail.ru", password: "32345", password_confirmation: "32345" }
   ]
 )
 
@@ -50,7 +50,7 @@ questions = Question.create!(
   ]
 )
 
-answers = Answer.create!(
+Answer.create!(
   [
     { correct: true, question: questions[0], body: "Первой правящей династией в Древнем Китае считается Цинь" },
     { correct: true, question: questions[1], body: "Хань" },

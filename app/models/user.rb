@@ -6,7 +6,9 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  validates :email, presence: true
+  validates :email,
+            presence: true,
+            format: { with: /\A[a-zA-Z0-9_.+\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-]+\z/, message: "incorrect email" }
 
   def test_passage(test)
     test_passages.order(id: :desc).find_by(test_id: test.id)

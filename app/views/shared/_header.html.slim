@@ -1,8 +1,13 @@
 header
   div#project
+    = link_to app_name, root_path
   div
     nav
       => link_to "register", signup_path
       '|
       =< link_to_unless logged_in?, "login", login_path do |name|
-        =< link_to "exit"
+        =< link_to "exit", logout_path
+
+    -if logged_in?
+      div.welcome
+        | Welcome, #{current_user.name} Guru
