@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  EMAIL_REGEXP = /@/.freeze
+
   has_many :test_passages, dependent: :destroy
   has_many :tests, through: :test_passages, dependent: :destroy
   has_many  :owned_tests, class_name: "Test", inverse_of: :author, foreign_key: "author_id",
@@ -8,7 +10,7 @@ class User < ApplicationRecord
 
   validates :email,
             presence: true,
-            format: { with: /\A[a-zA-Z0-9_.+\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-]+\z/, message: "incorrect email" }
+            format: { with: EMAIL_REGEXP, message: "incorrect email" }
 
   def test_passage(test)
     test_passages.order(id: :desc).find_by(test_id: test.id)

@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   ALERT_MESSAGE = "Are You a Guru? Verify your Email and Password please".freeze
 
-  before_action :last_path
+  before_action :remember_last_path
   before_action :authenticate_user!
 
   protect_from_forgery with: :exception
@@ -11,24 +11,21 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def last_path
+  def remember_last_path
     path = request.original_fullpath
-    cookies[:last_path] = path if path != login_path
+    cookies[:last_path] = path
   end
 
   def authenticate_user!
-    redirect_to login_path, alert: ALERT_MESSAGE unless current_user
+    redirect_to login_path, alert: ALERT_MESSAGE unless logged_in?
   end
 
   def current_user
-    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
+    user_id = session[:user_id]
+    @current_user ||= User.find_by(id: user_id) if user_id.present?
   end
 
   def logged_in?
     current_user.present?
-  end
-
-  def log_in(user)
-    session[:user_id] = user.id
   end
 end

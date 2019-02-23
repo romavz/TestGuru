@@ -6,7 +6,7 @@ header
       => link_to "register", signup_path
       '|
       =< link_to_unless logged_in?, "login", login_path do |name|
-        =< link_to "exit", logout_path
+        =< link_to "exit", logout_path, method: :delete
 
     -if logged_in?
       div.welcome

@@ -1,6 +1,5 @@
 class TestsController < ApplicationController
   before_action :load_test, only: %i[start show edit update destroy]
-  before_action :set_user,  only: %i[start]
 
   def index
     @tests = Test.includes(:category, :author, :questions)
@@ -37,18 +36,14 @@ class TestsController < ApplicationController
   end
 
   def start
-    @user.tests.push(@test)
-    redirect_to @user.test_passage(@test)
+    current_user.tests.push(@test)
+    redirect_to current_user.test_passage(@test)
   end
 
   private
 
   def load_test
     @test = Test.find(params[:id])
-  end
-
-  def set_user
-    @user = current_user
   end
 
   def test_params
