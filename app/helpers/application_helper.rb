@@ -8,4 +8,12 @@ module ApplicationHelper
     link_to(repo_name, url)
   end
 
+  def flash_message(type)
+    msg = flash[type]
+    content_tag :p, msg, class: "flash #{type}" if msg.present?
+  end
+
+  def app_name
+    "TestGuru"
+  end
 end

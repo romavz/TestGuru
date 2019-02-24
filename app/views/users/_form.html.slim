@@ -1,0 +1,16 @@
+= form_with model: @user, local: true do |f|
+  = render 'shared/errors', resource: @user
+
+  p
+    . = f.label :email
+    . = f.text_field :email, id: :user_email
+
+  p
+    . = f.label :password
+    . = f.text_field :password, id: :user_password
+
+  p
+    . = f.label :password_confirmation
+    . = f.text_field :password_confirmation, id: :user_password_confirmation
+
+  p = f.submit

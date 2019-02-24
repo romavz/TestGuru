@@ -14,7 +14,7 @@ class Test < ApplicationRecord
   validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :title, uniqueness: { scope: :level }
 
-  scope :select_by_category, -> (title) {
+  scope :select_by_category, ->(title) {
     joins(:category)
       .where(categories: { title: title })
       .order(title: :desc)
@@ -23,5 +23,4 @@ class Test < ApplicationRecord
   def self.take_titles_by_category(title)
     select_by_category(title).pluck(:title)
   end
-
 end
