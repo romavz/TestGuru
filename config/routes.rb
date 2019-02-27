@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    # root 'tests#index' # creates admin_root_path
     resources :tests
   end
 end
