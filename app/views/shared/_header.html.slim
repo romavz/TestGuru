@@ -2,10 +2,10 @@ header
   div#project
     = link_to app_name, root_path
 
-  -if user_signed_in?
-    p.nav.user
-      | Welcome, #{current_user.email} Guru |
-      =< link_to "Logout", destroy_user_session_path, method: :delete
+    -if user_signed_in?
+      div.nav-user
+        | Welcome, #{current_user.email} Guru |
+        =< link_to "Logout", destroy_user_session_path, method: :delete
 
 
     / div

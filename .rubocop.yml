@@ -31,3 +31,6 @@ Style/FrozenStringLiteralComment:
 
 Layout/EmptyLinesAroundClassBody:
   Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false

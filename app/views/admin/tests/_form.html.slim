@@ -3,13 +3,13 @@ div
 
 br
 div.edit_form
-  = form_with model: resource, local: true do |f|
-    = render 'shared/errors', resource: resource
+  = form_with model: [:admin, @test], local: true do |f|
+    = render 'shared/errors', resource: @test
 
     div
       = f.label :author
       | :
-      =< author_name(resource)
+      =< author_name(@test)
 
     div
       = f.label :title

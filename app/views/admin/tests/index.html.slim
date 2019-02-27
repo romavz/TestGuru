@@ -1,5 +1,8 @@
 h1 Tests
 
+div
+  = link_to "Add test", new_admin_test_path
+
 table
   thead
     tr
@@ -7,7 +10,7 @@ table
       th Level
       th Category
       th Questions
-      th Actions
+      th { colspan="4" } Actions
 
   tbody
     = render @tests
