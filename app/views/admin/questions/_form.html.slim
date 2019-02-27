@@ -1,10 +1,5 @@
 h1 = question_header(@test, @question)
 
-div
-= link_to "Back", admin_test_path(@test)
-
-br
-
 h3 Test: #{@test.title}
 div
   = form_with model: model, local: true do |f|
@@ -15,3 +10,7 @@ div
       = f.text_field :body, size: 80
     div
       = f.submit
+br
+div
+= link_to "Back", admin_test_path(@test)
+br

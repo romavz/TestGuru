@@ -1,4 +1,4 @@
-class QuestionsController < ApplicationController
+class Admin::QuestionsController < Admin::BaseController
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_record_not_found
 
   before_action :load_test, only: %i[new create]
@@ -31,7 +31,6 @@ class QuestionsController < ApplicationController
     else
       render :edit
     end
-
   end
 
   def destroy
