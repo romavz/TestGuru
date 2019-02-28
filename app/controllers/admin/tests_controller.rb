@@ -1,5 +1,5 @@
 class Admin::TestsController < Admin::BaseController
-  before_action :load_test, only: %i[show edit update destroy]
+  before_action :set_test, only: %i[show edit update destroy]
 
   def index
     @tests = Test.includes(:category, :author, :questions)
@@ -12,8 +12,7 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def create
-    @test = Test.new(test_params)
-    @test.author = current_user
+    @test = current_user.owned_tests.new(test_params)
     if @test.save
       redirect_to admin_tests_path
     else
@@ -38,7 +37,7 @@ class Admin::TestsController < Admin::BaseController
 
   private
 
-  def load_test
+  def set_test
     @test = Test.find(params[:id])
   end
 
