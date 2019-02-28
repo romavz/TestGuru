@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :remember_last_path
   before_action :authenticate_user!
 
-  before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :configure_permitted_parameters, only: [:create], if: :devise_controller?
 
   protected
 
