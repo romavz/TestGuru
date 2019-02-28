@@ -1,0 +1,23 @@
+
+div.edit_form
+  = form_with model: [:admin, @test], local: true do |f|
+    = render 'shared/errors', resource: @test
+
+    / div
+    /   = f.label :author
+    /   = f.text_field :author, disabled: ""
+
+    div
+      = f.label :title
+      = f.text_field :title, id: :test_title, size: 80
+    div
+      = f.label :level
+      = f.number_field :level, id: :test_level
+    div
+      = f.label :category_id
+      = f.collection_select :category_id, Category.all, :id, :title, prompt: true
+    div
+      = f.submit
+br
+= link_to "Back", admin_tests_path
+br

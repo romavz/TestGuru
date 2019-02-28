@@ -26,6 +26,11 @@ Style/StringLiterals:
 Style/ClassVars:
   Enabled: false
 
-
 Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Layout/EmptyLinesAroundClassBody:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
   Enabled: false
