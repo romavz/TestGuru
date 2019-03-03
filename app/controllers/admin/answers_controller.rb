@@ -1,10 +1,6 @@
 class Admin::AnswersController < Admin::BaseController
   before_action :set_question, only: %i[new create]
-  before_action :set_answer, only: %i[show edit update destroy]
-
-  def show
-    @question = @answer.question
-  end
+  before_action :set_answer, only: %i[edit update destroy]
 
   def new
     @answer = @question.answers.new

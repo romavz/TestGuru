@@ -1,0 +1,24 @@
+en:
+
+  admin:
+    tests:
+      create:
+        success:  "Test was successfully created."
+      index:
+        header:   "Tricky Tests"
+      new:
+        header:   "New Test"
+      edit:
+        header:   "Edit Test"
+
+    answers:
+      edit:
+        header:   "Edit Answer"
+      new:
+        header:   "New Answer"
+
+    questions:
+      new:
+        header:   "New Question"
+      edit:
+        header:   "Edit Question"

@@ -3,6 +3,6 @@ tr
   td = test.level
   td = test.category.title
   td = test.questions.size
-  td = link_to "Show", admin_test_path(test)
-  td = link_to "Edit", edit_admin_test_path(test)
-  td = link_to "Destroy", admin_test_path(test), method: :delete, data: { confirm: "Are you shure?" }
+  td = link_to t("show"), admin_test_path(test)
+  td = link_to t("edit"), edit_admin_test_path(test)
+  td = link_to t("destroy"), admin_test_path(test), method: :delete, data: { confirm: "Are you shure?" }

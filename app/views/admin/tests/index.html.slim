@@ -1,16 +1,16 @@
-h1 Tests
+h1 = t('.header')
 
 div
-  = link_to "Add test", new_admin_test_path
+  = link_to t('new', model: Test.model_name.human), new_admin_test_path
 
 table
   thead
     tr
-      th Title
-      th Level
-      th Category
-      th Questions
-      th { colspan="4" } Actions
+      th = t('title')
+      th = t('level')
+      th = t('category')
+      th = t('questions')
+      th { colspan="4" } = t('actions')
 
   tbody
     = render @tests

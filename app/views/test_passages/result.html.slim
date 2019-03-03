@@ -1,14 +1,14 @@
-
+- test_title = @test_passage.test.title
 - if @test_passage.successfull?
   - status      = "success"
-  - conclusion  = "Test completed successfull"
+  - header      =  '.success_header'
 - else
   - status      = "fail"
-  - conclusion  = "Test fail"
+  - header      = '.fail_header'
 
 h1 class="test_#{status}"
-  = @test_passage.test.title
-  =< "#{conclusion} (#{@test_passage.correct_questions_ratio}%)"
+  = t(header, title: @test_passage.test.title)
+  =< "(#{@test_passage.correct_questions_ratio}%)"
 
 div
-  = link_to "Back", tests_path
+  = link_to t('back'), tests_path

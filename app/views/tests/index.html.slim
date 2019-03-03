@@ -1,13 +1,13 @@
-h1 Tests
+h1 = t('.header')
 
 table
   thead
     tr
-      th Title
-      th Level
-      th Category
-      th Questions
-      th Actions
+      th = t('title')
+      th = t('level')
+      th = t('category')
+      th = t('questions')
+      th = t('actions')
 
   tbody
     = render @tests

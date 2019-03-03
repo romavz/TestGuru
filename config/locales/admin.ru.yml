@@ -1,0 +1,24 @@
+ru:
+
+  admin:
+    tests:
+      create:
+        success:  "Тест успешно создан."
+      index:
+        header:   "Список Тестов"
+      new:
+        header:   "Новый Тест"
+      edit:
+        header:   "Изменить Тест"
+
+    answers:
+      edit:
+        header:   "Изменить Ответ"
+      new:
+        header:   "Новый Ответ"
+
+    questions:
+      new:
+        header:   "Новый Вопрос"
+      edit:
+        header:   "Изменить вопрос"

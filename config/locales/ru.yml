@@ -1,3 +1,46 @@
 
 ru:
   hello: "Превед Мир"
+
+  start:    "Старт"
+  new:      "Создать %{model}"
+  show:     "Показать"
+  edit:     "Править"
+  destroy:  "Удалить"
+
+  title:      "Заголовок"
+  level:      "Уровень"
+  category:   "Категория"
+  questions:  "Вопросы"
+  actions:    "Действия"
+  back:       "Возврат"
+
+  helpers:
+    submit:
+      create: 'Создать'
+      update: 'Сохранить'
+      submit: 'Сохранить'
+
+    label:
+      test:
+        title:        "Заголовок"
+        level:        "Уровень"
+        category_id:  "Категория"
+
+      question:
+        text: "Текст"
+
+    select:
+      prompt: "Выбрать"
+
+  tests:
+    index:
+      header: "Доступные Тесты"
+
+  test_passages:
+    result:
+      success_header: "Тест '%{title}' успешно завершен!"
+      fail_header:    "Тест '%{title}' завален!"
+    show:
+      next:   "Следующий"
+      header: "Тест '%{test_title}'"
