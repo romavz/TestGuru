@@ -15,6 +15,14 @@ ru:
   actions:    "Действия"
   back:       "Возврат"
 
+  shared:
+    errors:
+      header:
+        few:    "Обнаружено %{count} ошибки"
+        many:   "Обнаружено %{count} ошибок"
+        one:    "Обнаружена %{count} ошибка"
+        other:  "Обнаружено %{count} ошибки"
+
   helpers:
     submit:
       create: 'Создать'
