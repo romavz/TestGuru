@@ -9,13 +9,14 @@ p
   = @test.level
 
 div
-  = link_to t('admin.questions.new.header'), new_admin_test_question_path(@test)
+  - new_question = t('links.new', model: Question.model_name.human)
+  = link_to new_question, new_admin_test_question_path(@test)
 
 <table>
   thead
     tr
       th { align="left" }   = Test.human_attribute_name(:questions)
-      th { colspan = "3" }  = t('actions')
+      th { colspan = "3" }  = t('headers.actions')
 
   tbody
     = render @test.questions
@@ -24,6 +25,6 @@ div
 br
 
 div
-  => link_to t('edit'), edit_admin_test_path(@test)
+  => link_to t('links.edit'), edit_admin_test_path(@test)
   | |
-  =< link_to t('back'), admin_tests_path
+  =< link_to t('links.back'), admin_tests_path

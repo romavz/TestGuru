@@ -6,4 +6,4 @@ div.nav.nav-admin
     b.nav-admin.user-email
       = current_user.email
     |  Guru |
-    =< link_to "Logout", destroy_user_session_path, method: :delete
+    =< link_to t("links.Logout"), destroy_user_session_path, method: :delete

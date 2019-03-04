@@ -3,10 +3,6 @@ div.edit_form
   = form_with model: [:admin, @test], local: true do |f|
     = render 'shared/errors', resource: @test
 
-    / div
-    /   = f.label :author
-    /   = f.text_field :author, disabled: ""
-
     div
       = f.label :title
       = f.text_field :title, id: :test_title, size: 80
@@ -19,5 +15,5 @@ div.edit_form
     div
       = f.submit
 br
-= link_to t('back'), admin_tests_path
+= link_to t('links.back'), admin_tests_path
 br

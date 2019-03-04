@@ -1,19 +1,36 @@
-
 ru:
+
+  aliases:
+    - &AUTHOR     { author:     "Автор" }
+    - &TEST       { test:       "Тест" }
+    - &LEVEL      { level:      "Уровень" }
+    - &QUESTIONS  { questions:  "Вопросы" }
+    - &QUESTION   { question:   "Вопрос"  }
+    - &CATEGORY   { category:   "Категория" }
+    - &ANSWER     { answer:     "Ответ" }
+    - &TEXT       { text:       "Текст" }
+    - &TITLE      { title:      "Заголовок" }
+    - &CORRECT    { correct:    "Правильный" }
+    - &BLANK      { blank:      "не может быть пустым" }
+    - &REQUIRED   { required:   "не может быть пустым" }
+
   hello: "Превед Мир"
 
-  start:    "Старт"
-  new:      "Создать %{model}"
-  show:     "Показать"
-  edit:     "Править"
-  destroy:  "Удалить"
+  links:
+    start:    "Старт"
+    new:      "Создать %{model}"
+    show:     "Показать"
+    edit:     "Править"
+    destroy:  "Удалить"
+    back:     "Возврат"
+    logout:   "Выйти"
 
-  title:      "Заголовок"
-  level:      "Уровень"
-  category:   "Категория"
-  questions:  "Вопросы"
-  actions:    "Действия"
-  back:       "Возврат"
+  headers:
+    <<: *TITLE
+    <<: *LEVEL
+    <<: *CATEGORY
+    <<: *QUESTIONS
+    actions:    "Действия"
 
   shared:
     errors:
@@ -23,6 +40,7 @@ ru:
         one:    "Обнаружена %{count} ошибка"
         other:  "Обнаружено %{count} ошибки"
 
+
   helpers:
     submit:
       create: 'Создать'
@@ -31,12 +49,12 @@ ru:
 
     label:
       test:
-        title:        "Заголовок"
-        level:        "Уровень"
+        <<: *TITLE
+        <<: *LEVEL
         category_id:  "Категория"
 
       question:
-        text: "Текст"
+        <<: *TEXT
 
     select:
       prompt: "Выбрать"
@@ -52,3 +70,31 @@ ru:
     show:
       next:   "Следующий"
       header: "Тест '%{test_title}'"
+
+
+  activerecord:
+    models:
+      <<: *TEST
+      <<: *QUESTION
+      <<: *ANSWER
+      <<: *CATEGORY
+
+    attributes:
+      test:
+        <<: *TITLE
+        <<: *LEVEL
+        <<: *CATEGORY
+        <<: *AUTHOR
+
+      question:
+        <<: *ANSWER
+
+      answer:
+        <<: *TEXT
+        <<: *CORRECT
+
+    errors:
+      messages:
+        <<: *BLANK
+        <<: *REQUIRED
+        record_not_found: "Запись не найдена"
