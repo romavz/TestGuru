@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Authentication
 gem 'devise', '~> 4.0'
+gem 'devise-i18n'
 
 # LOCALIZATION
 
