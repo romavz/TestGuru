@@ -49,7 +49,7 @@ class Admin::QuestionsController < Admin::BaseController
   end
 
   def rescue_with_record_not_found
-    render plain: 'Запись не найдена'
+    render plain: t('activerecord.errors.messages.record_not_found')
   end
 
   def question_params

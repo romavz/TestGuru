@@ -1,8 +1,7 @@
 div
   - if resource.errors.present?
     h3
-      => pluralize(resource.errors.count, "error")
-      | detected:
+      = t('.header', count: resource.errors.count)
     ul
       - resource.errors.full_messages.each do |message|
         li = message

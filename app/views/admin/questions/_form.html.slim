@@ -1,4 +1,4 @@
-h1 = question_header(@test, @question)
+/h1 = question_header(@test, @question)
 
 h3 Test: #{@test.title}
 div
@@ -6,11 +6,10 @@ div
     = render 'shared/errors', resource: resource
 
     div
-      = f.label :text, "Text "
-      = f.text_field :body, size: 80
+      = f.label :text
+      =< f.text_field :body, size: 80
     div
       = f.submit
 br
-div
-= link_to "Back", admin_test_path(@test)
+= link_to t('back'), admin_test_path(@test)
 br

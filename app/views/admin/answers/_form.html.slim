@@ -2,7 +2,7 @@
   = render 'shared/errors', resource: @answer
 
   div
-    => f.label :text, "Text"
+    => f.label :text
     = f.text_field :body, id: :answer_body, rows: 7, cols: 60
 
   div
@@ -10,3 +10,6 @@
     = f.check_box :correct, id: :answer_correct
 
   .actions = f.submit
+
+= link_to t('back'), admin_question_path(@answer.question)
+br
