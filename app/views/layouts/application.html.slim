@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 html
   head
+    meta charset="utf-8"
+    meta { name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" }
+
     title TestGuru
     = csrf_meta_tags
     = csp_meta_tag
@@ -10,7 +13,10 @@ html
 
 
   body
-    = render "shared/header"
-    = render "shared/flash"
-    = yield
+    = render "shared/nav"
+
+    div.container
+      = render "shared/flash"
+      = yield
+
     = render "shared/footer"

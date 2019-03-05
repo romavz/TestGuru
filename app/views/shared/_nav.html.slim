@@ -1,0 +1,12 @@
+nav.navbar.navbar-light.bg-light
+  = link_to app_name, root_path, class: "navbar-brand"
+
+  span.navbar-text
+    -if user_signed_in?
+      div.nav-user
+        | Welcome, #{current_user.email} Guru |
+        =< link_to t("devise.sessions.sign_out"), destroy_user_session_path, method: :delete
+    -else
+      => link_to t("devise.sessions.new.sign_in"), new_session_path(resource_name)
+      '|
+      =< link_to t("devise.registrations.new.sign_up"), new_registration_path(resource_name)
