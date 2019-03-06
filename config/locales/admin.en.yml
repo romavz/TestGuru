@@ -1,6 +1,8 @@
 en:
 
   admin:
+    control_panel: "Control panel"
+
     tests:
       create:
         success:  "Test was successfully created."
