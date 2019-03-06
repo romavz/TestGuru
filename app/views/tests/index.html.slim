@@ -1,13 +1,15 @@
-h1 = t('.header')
+div.row.justify-content-center.mt-3
+  div.col.col-md-8
+    h1 = t('.header')
 
-table
-  thead
-    tr
-      th = t('headers.title')
-      th = t('headers.level')
-      th = t('headers.category')
-      th = t('headers.questions')
-      th = t('headers.actions')
+    table class="table"
+      thead
+        tr
+          th scope="col" = t('headers.title')
+          th scope="col" = t('headers.level')
+          th scope="col" = t('headers.category')
+          th scope="col" = t('headers.questions')
+          th scope="col" = t('headers.actions')
 
-  tbody
-    = render @tests
+      tbody
+        = render @tests
