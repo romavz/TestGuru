@@ -115,7 +115,11 @@ ru:
     sessions:
       already_signed_out: Выход из системы уже выполнен.
       new:
-        sign_in: Войти
+        sign_in: Вход
+        enter: Войти
+        remember_me: Запомнить меня
+        enter_the_guru_gates: Вход в TestGuru
+      sign_out: Выйти
       signed_in: Вход в систему выполнен.
       signed_out: Выход из системы выполнен.
     shared:

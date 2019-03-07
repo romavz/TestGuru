@@ -1,16 +1,18 @@
-h1 = t('.header')
+div.row.justify-content-center.mt-3
+  div.col.col-md-8
+    h1 = t('.header')
 
-div
-  = link_to t('links.new', model: Test.model_name.human), new_admin_test_path
+    div
+      = link_to t('links.new', model: Test.model_name.human), new_admin_test_path
 
-table
-  thead
-    tr
-      th = t('headers.title')
-      th = t('headers.level')
-      th = t('headers.category')
-      th = t('headers.questions')
-      th { colspan="4" } = t('headers.actions')
+    table class="table mt-3"
+      thead
+        tr
+          th scope="col" = t('headers.title')
+          th scope="col" = t('headers.level')
+          th scope="col" = t('headers.category')
+          th scope="col" = t('headers.questions')
+          th { scope="col" colspan="4" } = t('headers.actions')
 
-  tbody
-    = render @tests
+      tbody
+        = render @tests

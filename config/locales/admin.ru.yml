@@ -1,6 +1,8 @@
 ru:
 
   admin:
+    control_panel: "Панель управления"
+
     tests:
       create:
         success:  "Тест успешно создан."

@@ -1,9 +1,8 @@
-div.nav.nav-admin
-  span.nav-admin.title TestGuru Admin Panel
+nav.navbar.navbar-light.bg-light
+  = link_to app_name, root_path, class: "navbar-brand"
+  div.navbar-text Admin Panel
 
-  div.nav-admin.user
-    'Welcome,
-    b.nav-admin.user-email
-      = current_user.email
-    |  Guru |
-    =< link_to t("links.Logout"), destroy_user_session_path, method: :delete
+  span.navbar-text
+    div.nav-user
+      | Welcome, #{current_user.email} Guru |
+      =< link_to t("devise.sessions.sign_out"), destroy_user_session_path, method: :delete
