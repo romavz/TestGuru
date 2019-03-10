@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Question:
+  = @admin_gist.question_id
+p
+  strong Gist url:
+  = @admin_gist.gist_url
+p
+  strong User:
+  = @admin_gist.user_id
+
+=> link_to 'Edit', edit_admin_gist_path(@admin_gist)
+'|
+=< link_to 'Back', admin_gists_path

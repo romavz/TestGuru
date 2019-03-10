@@ -1,0 +1,12 @@
+h1 Listing admin_gists
+
+table
+  thead
+    tr
+      th = Question.model_name.human
+      th = Gist.human_attribute_name :gist_url
+      th = User.model_name.human
+      th
+
+  tbody
+    = render @gists
