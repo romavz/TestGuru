@@ -1,0 +1,5 @@
+      tr
+        td = link_to short_question(gist.question), admin_question_path(gist.question)
+        td = link_to gist_id(gist.url), gist.url
+        td = gist.user.email
+        td = link_to t('links.show'), admin_gist_path(gist)

@@ -2,7 +2,7 @@ class Admin::GistsController < ApplicationController
   before_action :set_admin_gist, only: %i[show]
 
   def index
-    @admin_gists = Gist.all
+    @gists = Gist.all
   end
 
   def show; end
@@ -19,7 +19,7 @@ class Admin::GistsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_admin_gist
-    @admin_gist = Gist.find(params[:id])
+    @gist = Gist.find(params[:id])
   end
 
 end

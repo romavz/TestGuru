@@ -2,14 +2,12 @@ p#notice = notice
 
 p
   strong Question:
-  = @admin_gist.question_id
+  = @gist.question.body
 p
   strong Gist url:
-  = @admin_gist.gist_url
+  = @gist.url
 p
   strong User:
-  = @admin_gist.user_id
+  = @gist.user.email
 
-=> link_to 'Edit', edit_admin_gist_path(@admin_gist)
-'|
 =< link_to 'Back', admin_gists_path
