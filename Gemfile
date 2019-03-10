@@ -1,12 +1,14 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+gem 'dotenv-rails', groups: [:development, :test]
+
 ruby '2.5.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'sqlite3', '~> 1.3.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -39,8 +41,9 @@ gem 'rails-i18n', '~> 5.1.0'
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.3.1'
 
-# Networking
-gem 'faraday'
+
+# GitHub Client
+gem "octokit", "~> 4.0"
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

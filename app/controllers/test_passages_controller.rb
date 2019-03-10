@@ -18,7 +18,8 @@ class TestPassagesController < ApplicationController
   end
 
   def gist
-    result = GistQuestionService.new(@test_passage.current_question).call
+    question = @test_passage.current_question
+    result = GistQuestionService.new(question).call
 
     flash_options =
       if result.success?
