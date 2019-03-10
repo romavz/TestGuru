@@ -68,7 +68,7 @@ en:
       next:   "Next"
       header: "'%{test_title}' Test"
     gist:
-      success: "Gist was successfully created!"
+      success: "<a href='%{link_to}'>Gist</a> was successfully created!"
       failure: "An arror accurred while saving gist"
 
 
