@@ -19,8 +19,9 @@ class GistQuestionService
   private
 
   def gist_params
+    description = 'gist_question_service.gist_description'
     {
-      description: "A question about  #{@test.title} from TestGuru",
+      description: I18n.translate(description, test_title: @test.title),
       files: {
         'test-guru-question.txt': {
           content: gist_content

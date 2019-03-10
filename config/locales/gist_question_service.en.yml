@@ -1,0 +1,3 @@
+en:
+  gist_question_service:
+    gist_description: "A question about '%{test_title}' from TestGuru"
