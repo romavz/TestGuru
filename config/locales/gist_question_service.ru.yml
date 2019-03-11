@@ -1,0 +1,3 @@
+ru:
+  gist_question_service:
+    gist_description: "Вопрос к тесту '%{test_title}' с TestGuru"

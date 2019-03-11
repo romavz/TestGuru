@@ -3,5 +3,5 @@
     div.col.col-md-6
       div.alert.alert-primary.justify-content-center role="alert"
         - flash.each do |type, message|
-          = content_tag :p, message, class: "flash #{type}"
+          = content_tag :p, message.html_safe, class: "flash #{type}"
 

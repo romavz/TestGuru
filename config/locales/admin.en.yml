@@ -24,3 +24,7 @@ en:
         header:   "New Question"
       edit:
         header:   "Edit Question"
+
+    gists:
+      index:
+        header:   "List of Gists"

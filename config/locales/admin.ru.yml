@@ -24,3 +24,7 @@ ru:
         header:   "Новый Вопрос"
       edit:
         header:   "Изменить вопрос"
+
+    gists:
+      index:
+        header:   "Список Gist-ов"

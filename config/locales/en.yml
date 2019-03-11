@@ -67,6 +67,9 @@ en:
     show:
       next:   "Next"
       header: "'%{test_title}' Test"
+    gist:
+      success: "<a href='%{link_to}'>Gist</a> was successfully created!"
+      failure: "An arror accurred while saving gist"
 
 
   activerecord:

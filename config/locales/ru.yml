@@ -70,6 +70,9 @@ ru:
     show:
       next:   "Следующий"
       header: "Тест '%{test_title}'"
+    gist:
+      success: "<a href='%{link_to}'>Gist</a> успешно сохранен!"
+      failure: "Во время сохранения Gist произошла ошибка"
 
 
   activerecord:
