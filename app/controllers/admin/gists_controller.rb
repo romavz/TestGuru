@@ -7,17 +7,8 @@ class Admin::GistsController < ApplicationController
 
   def show; end
 
-  # DELETE /admin/gists/1
-  # def destroy
-  #   @admin_gist.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to admin_gists_url, notice: 'Gist was successfully destroyed.' }
-  #   end
-  # end
-
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_admin_gist
     @gist = Gist.find(params[:id])
   end
