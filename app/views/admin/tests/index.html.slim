@@ -8,7 +8,10 @@ div.row.justify-content-center.mt-3
     table class="table mt-3"
       thead
         tr
-          th scope="col" = t('headers.title')
+          th.sort-by-title.pointer scope="col"
+            = t('headers.title')
+            =< octicon 'triangle-up', class: 'text-success hide'
+            = octicon 'triangle-down', class: 'text-success hide'
           th scope="col" = t('headers.level')
           th scope="col" = t('headers.category')
           th scope="col" = t('headers.questions')
