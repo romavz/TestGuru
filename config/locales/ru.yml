@@ -24,6 +24,7 @@ ru:
     destroy:  "Удалить"
     back:     "Возврат"
     logout:   "Выйти"
+    cancel:   "Отмена"
 
   headers:
     <<: *TITLE

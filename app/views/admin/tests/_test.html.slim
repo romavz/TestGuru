@@ -1,10 +1,18 @@
 tr
   td.align-middle
-    = test.title
-    = render "form_inline", test: test == @test ? @test : test
+    = content_tag :span, test.title, class: "test-title", data: { test_id: test.id }
+    = render "form_inline", test: test == @test ? @test : test, data: { test_id: test.id }
   td.align-middle = test.level
   td.align-middle = test.category.title
   td.align-middle = test.questions.size
   td.align-middle = link_to t("links.show"), admin_test_path(test)
-  td.align-middle = link_to t("links.edit"), edit_admin_test_path(test)
-  td.align-middle = link_to t("links.destroy"), admin_test_path(test), method: :delete, data: { confirm: "Are you shure?" }
+  td.align-middle
+    = link_to t("links.edit"),
+      edit_admin_test_path(test),
+      data: { test_id: test.id, title1: t("links.edit"), title2: t("links.cancel") },
+      class: "form-inline-link"
+  td.align-middle
+    = link_to t("links.destroy"),
+      admin_test_path(test),
+      method: :delete,
+      data: { confirm: "Are you shure?" }
