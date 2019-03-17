@@ -1,5 +1,5 @@
 div
-  - if resource.errors.present?
+  - if resource.present? && resource.errors.present?
     h3
       = t('.header', count: resource.errors.count)
     ul
