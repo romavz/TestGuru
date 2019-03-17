@@ -1,16 +1,27 @@
-h1 = t('.header', test_title: @test_passage.test.title)
+span#test_passage
+  h1 = t('.header', test_title: @test_passage.test.title)
 
-b
-  => "(#{@test_passage.progress})"
-  = @test_passage.question_text
+  b
+    => "(#{@test_passage.progress})"
+    = @test_passage.question_text
 
-- options = { url: test_passage_path(@test_passage), method: :put, local: true }
-= form_with options do |form|
-  = form.collection_check_boxes :answer_ids, @test_passage.current_answers, :id, :body, include_hidden: false do |b|
+  div.w-100.bg-light.mt-1.mb-3
+    = content_tag :div, "",
+      id: "progressbar",
+      class: "bg-success text-dark",
+      data: { \
+        count: @test_passage.current_question_number,
+        max_count: @test_passage.questions_count \
+      }
+
+
+  - options = { url: test_passage_path(@test_passage), method: :put, local: true }
+  = form_with options do |form|
+    = form.collection_check_boxes :answer_ids, @test_passage.current_answers, :id, :body, include_hidden: false do |b|
+      p
+        = b.check_box id: "answer_ids_#{b.object.id}"
+        = b.label
     p
-      = b.check_box id: "answer_ids_#{b.object.id}"
-      = b.label
-  p
-    = link_to 'Gist Question', gist_test_passage_path(@test_passage), method: :post
-  
-  = form.submit t('.next')
+      = link_to 'Gist Question', gist_test_passage_path(@test_passage), method: :post
+
+    = form.submit t('.next')
