@@ -24,6 +24,7 @@ en:
     destroy:  "Delete"
     back:     "Back"
     logout:   "Logout"
+    cancel:   "Cancel"
 
   headers:
     <<: *TITLE

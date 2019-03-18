@@ -9,10 +9,15 @@ class TestPassage < ApplicationRecord
   before_validation :set_current_question
 
   def progress
-    current_question_number = questions.where('id < ?', current_question.id).size + 1
-    questions_count = test.questions.count
-
     "#{current_question_number}/#{questions_count}"
+  end
+
+  def current_question_number
+    questions.where('id < ?', current_question.id).size + 1
+  end
+
+  def questions_count
+    test.questions.count
   end
 
   def question_text

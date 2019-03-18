@@ -1,0 +1,10 @@
+
+= form_with \
+  model: [:admin, test],
+  url: update_inline_admin_test_path(test),
+  class: 'form-inline hide',
+  local: true,
+  data: { test_id: test.id } \
+  do |f|
+  = f.text_field :title, id: :test_title, class: "form-control mr-2"
+  =< f.submit
