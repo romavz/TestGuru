@@ -6,12 +6,14 @@ class ContactsMailer < ApplicationMailer
   #   en.contacts_mailer.feedback.subject
   #
   def feedback(feedback_attr)
-    @message = feedback_attr.message
-    @email = feedback_attr.email
+    @message  = feedback_attr.message
+    @email    = feedback_attr.email
+    @subject  = feedback_attr.subject
 
-    mail  from: feedback_attr.email,
-          to: ENV['EMAIL_FOR_FEEDBACK'],
+    mail  from: @email,
+          to: ENV['EMAIL_FOR_FEEDBACKS'],
           cc: @email,
-          subject: "Feedback message for TestGuru web site"
+          subject: t(".subject_prefix") + ":  #{@subject}",
+          body: feedback_attr.message
   end
 end

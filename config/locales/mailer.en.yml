@@ -2,3 +2,7 @@ en:
   tests_mailer:
     completed_test:
       subject:        "You just completed the TestGuru test!"
+
+  contacts_mailer:
+    feedback:
+      subject_prefix: "TestGuru feedback"
