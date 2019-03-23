@@ -10,8 +10,7 @@ class ContactsMailer < ApplicationMailer
     @email    = feedback_attr.email
     @subject  = feedback_attr.subject
 
-    mail  from: @email,
-          to: ENV['EMAIL_FOR_FEEDBACKS'],
+    mail  to: ENV['EMAIL_FOR_FEEDBACKS'],
           cc: @email,
           subject: t(".subject_prefix") + ":  #{@subject}",
           body: feedback_attr.message
