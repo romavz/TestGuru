@@ -63,7 +63,18 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "TestGuru_#{Rails.env}"
 
-  config.action_mailer.perform_caching = false
+  mailer = config.action_mailer
+  mailer.perform_caching = false
+  mailer.default_url_options = { host: 'aqueous-everglades-26575.herokuapp.com' }
+  mailer.delivery_method = :smtp
+  mailer.smtp_settings = {
+    addresses:            'smtp.gmail.com',
+    port:                 577,
+    user_name:            ENV['SMTP_USERNAME'],
+    password:             ENV['SMTP_PASSWORD'],
+    authentication:       'plain',
+    enable_starttls_autho: true
+  }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
