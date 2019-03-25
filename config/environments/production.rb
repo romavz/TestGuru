@@ -68,12 +68,12 @@ Rails.application.configure do
   mailer.default_url_options = { host: 'aqueous-everglades-26575.herokuapp.com' }
   mailer.delivery_method = :smtp
   mailer.smtp_settings = {
-    addresses:            'smtp.gmail.com',
+    address:              'smtp.gmail.com',
     port:                 587,
     user_name:            ENV['SMTP_USERNAME'],
     password:             ENV['SMTP_PASSWORD'],
     authentication:       'plain',
-    enable_starttls_autho: true
+    enable_starttls_auto: true
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.
