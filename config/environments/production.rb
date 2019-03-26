@@ -65,7 +65,7 @@ Rails.application.configure do
 
   mailer = config.action_mailer
   mailer.perform_caching = false
-  mailer.default_url_options = { host: 'aqueous-everglades-26575.herokuapp.com' }
+  mailer.default_url_options = { host: 'testguru-zr.herokuapp.com' }
   mailer.delivery_method = :smtp
   mailer.smtp_settings = {
     address:              'smtp.gmail.com',
