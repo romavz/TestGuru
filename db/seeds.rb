@@ -16,7 +16,7 @@ categories = Category.create!(
 
 users = User.create!(
   [
-    { first_name: "Admin", last_name: "Admin", email: "admin@mamail.ru", password: "123456", password_confirmation: "123456", type: "Admin" },
+    { first_name: "Admin", last_name: "Admin", email: ENV['ADMIN_EMAIL'], password: ENV['ADMIN_PASSWORD'], password_confirmation: ENV['ADMIN_PASSWORD'], type: "Admin" },
   ]
 )
 
