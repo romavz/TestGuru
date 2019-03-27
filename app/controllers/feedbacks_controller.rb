@@ -2,7 +2,10 @@ class FeedbacksController < ApplicationController
 
   # GET /feedback
   def new
-    @feedback = Feedback.new
+    @feedback = Feedback.new(
+      name: current_user.first_name,
+      email: current_user.email
+    )
   end
 
   # POST /feedback
