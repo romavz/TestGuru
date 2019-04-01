@@ -1,0 +1,27 @@
+
+div.card.border-primary
+  div.card-body
+    = form_with model: [@feedback], url: feedback_path, local: true do |f|
+      = render 'shared/errors', resource: @feedback
+      .field
+        - name_str = Feedback.human_attribute_name(:name)
+        = f.label :name, name_str
+        br
+        = f.text_field :name, class: "form-control", placeholder: name_str, "aria-label" => name_str
+      .field
+        - email_str = Feedback.human_attribute_name(:email)
+        = f.label :email, email_str
+        br
+        = f.text_field :email, class: "form-control", placeholder: "email@example.com", "aria-label" => email_str
+      .field
+        - subject_str = Feedback.human_attribute_name(:subject)
+        = f.label :subject, subject_str
+        br
+        = f.text_field :subject, class: "form-control", placeholder: subject_str, "aria-label" => subject_str
+      .field
+        - message_str = Feedback.human_attribute_name(:message)
+        = f.label :message, message_str
+        br
+        = f.text_area :message, class: "form-control", placeholder: message_str, "aria-label" => message_str
+      br
+      .actions = f.submit

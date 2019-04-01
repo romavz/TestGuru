@@ -75,6 +75,24 @@ ru:
       success: "<a href='%{link_to}'>Gist</a> успешно сохранен!"
       failure: "Во время сохранения Gist произошла ошибка"
 
+  feedbacks:
+    success:
+      title: "Отзыв успешно создан."
+
+    new:
+      feedback: "Новый отзыв"
+
+
+  activemodel:
+    models:
+      feedback: "Отзыв"
+
+    attributes:
+      feedback:
+        name: "Имя"
+        email: "email"
+        subject: "Тема"
+        message: "Сообщение"
 
   activerecord:
     models:

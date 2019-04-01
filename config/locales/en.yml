@@ -72,6 +72,25 @@ en:
       success: "<a href='%{link_to}'>Gist</a> was successfully created!"
       failure: "An arror accurred while saving gist"
 
+  feedbacks:
+    success:
+      title: "Feedback was successfully created."
+
+    new:
+      feedback: "New feedback"
+
+
+
+  activemodel:
+    models:
+      feedback: "Feedback"
+
+    attributes:
+      feedback:
+        name: "Name"
+        email: "Email"
+        subject: "Subject"
+        message: "Message"
 
   activerecord:
     models:

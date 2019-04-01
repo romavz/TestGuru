@@ -1,4 +1,5 @@
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+# rubocop:disable Metrics/BlockLength
 Rails.application.routes.draw do
   root to: "tests#index"
 
@@ -6,6 +7,10 @@ Rails.application.routes.draw do
               path: :gurus,
               path_names: { sign_in: :login, sign_out: :logout },
               controllers: { sessions: 'users/sessions' }
+
+  # resource :feedback, only: %i[new create]
+  get "feedback", to: "feedbacks#new"
+  post "feedback", to: "feedbacks#create"
 
   resources :tests, only: :index do
     member do
@@ -30,3 +35,4 @@ Rails.application.routes.draw do
     resources :gists, only: %i[index show]
   end
 end
+# rubocop:enable Metrics/BlockLength

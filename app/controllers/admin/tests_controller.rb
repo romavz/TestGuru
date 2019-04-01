@@ -15,7 +15,7 @@ class Admin::TestsController < Admin::BaseController
   def create
     @test = current_user.owned_tests.new(test_params)
     if @test.save
-      redirect_to [:admin, @tests], notice: t('.success')
+      redirect_to [:admin, @test], notice: t('.success')
     else
       render :new
     end
@@ -25,7 +25,7 @@ class Admin::TestsController < Admin::BaseController
 
   def update
     if @test.update(test_params)
-      redirect_to [:admin, @tests]
+      redirect_to [:admin, @test]
     else
       render :edit
     end
@@ -56,6 +56,6 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def test_params
-    params.require(:test).permit(:title, :level, :category, :author)
+    params.require(:test).permit(:title, :level, :category_id, :author)
   end
 end

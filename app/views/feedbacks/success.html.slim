@@ -1,0 +1,20 @@
+div.row.justify-content-center.mt-3
+  div.col.col-md-8
+    div.alert.alert-success.justify-content-center role="alert"
+      = t('.title')
+
+    div.card.border-success
+      div.card-body
+        p
+          strong Name:
+          =< @feedback.name
+        p
+          strong Email:
+          =< @feedback.email
+        p
+          strong Subject:
+          =< @feedback.subject
+        p
+          strong Message:
+        div
+          = @feedback.message
