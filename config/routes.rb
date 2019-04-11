@@ -8,6 +8,8 @@ Rails.application.routes.draw do
               path_names: { sign_in: :login, sign_out: :logout },
               controllers: { sessions: 'users/sessions' }
 
+  resources :badges, only: :index
+
   # resource :feedback, only: %i[new create]
   get "feedback", to: "feedbacks#new"
   post "feedback", to: "feedbacks#create"
@@ -33,6 +35,7 @@ Rails.application.routes.draw do
       end
     end
     resources :gists, only: %i[index show]
+    resources :badges
   end
 end
 # rubocop:enable Metrics/BlockLength
