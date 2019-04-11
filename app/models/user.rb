@@ -9,6 +9,8 @@ class User < ApplicationRecord
           :validatable,
           :confirmable
 
+  has_many :issued_badges, dependent: :destroy
+  has_many :badges, through: :issued_badges, dependent: :destroy
   has_many :gists, dependent: :destroy
   has_many :test_passages, dependent: :destroy
   has_many :tests, through: :test_passages, dependent: :destroy
