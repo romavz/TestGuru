@@ -6,6 +6,8 @@ class TestPassage < ApplicationRecord
   belongs_to :test
   belongs_to :current_question, class_name: "Question", optional: true
 
+  enum complete_status: { failed: 0, successfull: 1 }
+
   before_validation :set_current_question
 
   def progress
@@ -13,11 +15,15 @@ class TestPassage < ApplicationRecord
   end
 
   def current_question_number
-    questions.where('id < ?', current_question.id).size + 1
+    if completed?
+      questions_count
+    else
+      questions.where('id < ?', current_question.id).size + 1
+    end
   end
 
   def questions_count
-    test.questions.count
+    @questions_count ||= test.questions.count
   end
 
   def question_text
@@ -34,12 +40,12 @@ class TestPassage < ApplicationRecord
 
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
-
+    update_complete_status
     save!
   end
 
-  def successfull?
-    correct_questions_ratio >= SUCCESS_PERCENT
+  def update_complete_status
+    update(complete_status: correct_questions_ratio >= SUCCESS_PERCENT ? :successfull : :failed) if completed?
   end
 
   def correct_questions_ratio
@@ -53,7 +59,7 @@ class TestPassage < ApplicationRecord
   end
 
   def set_current_question
-    self.current_question = next_question
+    self.current_question = next_question unless completed?
   end
 
   def next_question
