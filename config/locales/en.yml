@@ -1,6 +1,7 @@
 en:
 
   aliases:
+    - &BADGE      { badge:      "Badge" }
     - &AUTHOR     { author:     "Author" }
     - &TEST       { test:       "Test" }
     - &LEVEL      { level:      "Level" }
@@ -13,6 +14,7 @@ en:
     - &CORRECT    { correct:    "Correct" }
     - &BLANK      { blank:      "can't be blank" }
     - &REQUIRED   { required:   "can't be blank" }
+    - &IMAGE      { image:      "Image" }
 
   hello: "Hello world"
 
@@ -31,13 +33,20 @@ en:
     <<: *LEVEL
     <<: *CATEGORY
     <<: *QUESTIONS
+    <<: *IMAGE
+    name:       "Name"
     actions:    "Actions"
+
+  exceptions:
+    file_not_found: "not exist"
 
   shared:
     errors:
       header:
         one:    "%{count} error detected"
         other:  "%{count} errors detected"
+
+
 
   helpers:
     submit:
@@ -79,7 +88,15 @@ en:
     new:
       feedback: "New feedback"
 
+  badges:
+    index:
+      header: "Deserved badges"
 
+    rewarding_rules:
+      first_test_passed:      "First test passed"
+      test_passed_by_one_try: "Test passed by one try"
+      category_complete:      "Complete category"
+      level_complete:         "Complete level"
 
   activemodel:
     models:
@@ -98,6 +115,7 @@ en:
       <<: *QUESTION
       <<: *ANSWER
       <<: *CATEGORY
+      <<: *BADGE
 
     attributes:
       test:
@@ -112,6 +130,14 @@ en:
       answer:
         <<: *TEXT
         <<: *CORRECT
+
+      badge:
+        <<: *TITLE
+        <<: *IMAGE
+        image_path: "Path to image"
+        rule_name:  "Awarding rule"
+        rule_value: "Rule argument"
+        multiple:   "Multiple"
 
     errors:
       messages:

@@ -7,24 +7,40 @@ ru:
       create:
         success:  "Тест успешно создан."
       index:
-        header:   "Список Тестов"
+        header:   "Список тестов"
       new:
-        header:   "Новый Тест"
+        header:   "Новый тест"
       edit:
-        header:   "Изменить Тест"
+        header:   "Изменить тест"
 
     answers:
       edit:
-        header:   "Изменить Ответ"
+        header:   "Изменить ответ"
       new:
-        header:   "Новый Ответ"
+        header:   "Новый ответ"
 
     questions:
       new:
-        header:   "Новый Вопрос"
+        header:   "Новый вопрос"
       edit:
         header:   "Изменить вопрос"
 
     gists:
       index:
         header:   "Список Gist-ов"
+
+    badges:
+      create:
+        success:  "Значок успешно создан"
+      index:
+        header:   "Список значков"
+      new:
+        header:   "Новый значок"
+      edit:
+        header:   "Изменить Значок"
+      headers:
+        image_path: "Путь к файлу картинки"
+        rule_name:  "Правило награждения"
+        rule_value: "Параметр правила (необязательный)"
+        multiple:   "Многократный"
+

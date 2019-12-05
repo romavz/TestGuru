@@ -28,3 +28,18 @@ en:
     gists:
       index:
         header:   "List of Gists"
+
+    badges:
+      create:
+        success:  "Badge was successfully created"
+      index:
+        header:   "List of Badges"
+      new:
+        header:   "New Badge"
+      edit:
+        header:   "Edit Badge"
+      headers:
+        image_path: "Path to image"
+        rule_name:  "Rule name"
+        rule_value: "Rule value (optional)"
+        multiple:   "Multiple"
