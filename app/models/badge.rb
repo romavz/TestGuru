@@ -12,4 +12,13 @@ class Badge < ApplicationRecord
   rescue AppExceptions::BaseException => error
     errors.add :image_path, error.message
   end
+
+  def for_single_time_use?
+    !multiple
+  end
+
+  def for_many_tyme_use?
+    multiple
+  end
+
 end

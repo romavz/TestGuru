@@ -17,6 +17,10 @@ class User < ApplicationRecord
   has_many  :owned_tests, class_name: "Test", inverse_of: :author, foreign_key: "author_id",
             dependent: :restrict_with_exception # rubocop:disable Layout/AlignHash
 
+  def already_has_this_badge?(badge_id)
+    issued_badges.where(badge_id: badge_id).size.positive?
+  end
+
   def passed_tests
     passages = test_passages.successfull
     Test.joins(

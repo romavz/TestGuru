@@ -12,9 +12,21 @@ class BadgeIssuingService
   def call
     return [] unless test_passage.successfull?
 
-    new_badges = Badge.all.select { |badge| send(badge.rule_name, badge.rule_value) }
+    new_badges = Badge.all.select do |badge|
+      badge_allowed?(badge) && issuing_success?(badge.rule_name, badge.rule_value)
+    end
     user.badges << new_badges
     new_badges
+  end
+
+  private
+
+  def badge_allowed?(badge)
+    !(badge.for_single_time_use? && user.already_has_this_badge?(badge.id))
+  end
+
+  def issuing_success?(rule_name, rule_value)
+    send(rule_name, rule_value)
   end
 
   # ---------------------------
