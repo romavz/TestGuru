@@ -5,8 +5,8 @@ nav.navbar.navbar-light.bg-light
   span.navbar-text
     div.nav-user
       | Welcome, #{current_user.email} Guru |
-      =<> link_to t("admin.tests.index.header"), admin_tests_path
-      ||
-      =<> link_to t("admin.badges.index.header"), admin_badges_path
-      ||
+      =< link_to t("admin.tests.index.header"), admin_tests_path
+      ' |
+      =< link_to t("admin.badges.index.header"), admin_badges_path
+      ' |
       =< link_to t("devise.sessions.sign_out"), destroy_user_session_path, method: :delete

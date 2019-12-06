@@ -40,7 +40,6 @@ class TestPassage < ApplicationRecord
 
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
-    update_complete_status
     save!
   end
 
@@ -59,7 +58,10 @@ class TestPassage < ApplicationRecord
   end
 
   def set_current_question
-    self.current_question = next_question unless completed?
+    return if !new_record? && completed?
+
+    self.current_question = next_question
+    update_complete_status
   end
 
   def next_question

@@ -1,7 +1,7 @@
 ru:
 
   aliases:
-    - &BADGE      { badge:      "Значок" }
+    - &BADGE      { badge:      "Награда" }
     - &AUTHOR     { author:     "Автор" }
     - &TEST       { test:       "Тест" }
     - &LEVEL      { level:      "Уровень" }
@@ -90,7 +90,7 @@ ru:
 
   badges:
     index:
-      header: "Заслуженные значки"
+      header: "Награды"
 
     rewarding_rules:
       first_test_passed:      "Пройден первый тест"

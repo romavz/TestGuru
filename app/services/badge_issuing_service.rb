@@ -26,6 +26,8 @@ class BadgeIssuingService
   end
 
   def issuing_success?(rule_name, rule_value)
+    return send(rule_name) if rule_value.nil?
+
     send(rule_name, rule_value)
   end
 
@@ -41,13 +43,16 @@ class BadgeIssuingService
 
   # Тест пройден с одной попытки
   def test_passed_by_one_try
-    test_passages = test.user_test_passages(user: user)
+    test_passages = test.user_test_passages(user)
     successfull_test_passages = test_passages.successfull
 
     test_passages.size == 1 && successfull_test_passages.size == 1
   end
 
-  def category_complete(category)
+  def category_complete(category_id)
+    category = Category.find_by(id: category_id.to_i)
+    return false if category.nil?
+
     category_tests_count = category.tests.size
     passed_tests_count = user.passed_tests.select_by_category(category).size
 
@@ -55,7 +60,7 @@ class BadgeIssuingService
   end
 
   def level_complete(level_number)
-    tests_by_level_count = Test.select_by_level(level_number).size
+    tests_by_level_count = Test.select_by_level(level_number.to_i).size
     passed_tests_count = user.passed_tests.select_by_level(level_number).size
 
     passed_tests_count == tests_by_level_count

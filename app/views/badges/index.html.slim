@@ -1,0 +1,15 @@
+div.row.justify-content-center.mt-3
+  div.col.col-md-8
+    h1 = t('.header')
+
+    table class="table mt-3"
+      thead
+        tr
+          th scope="col"
+          th.col-3.sort-by-title.pointer scope="col"
+            = t('headers.name')
+            =< octicon 'triangle-up', class: 'text-success hide'
+            = octicon 'triangle-down', class: 'text-success hide'
+
+      tbody
+        = render @badges

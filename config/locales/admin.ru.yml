@@ -7,7 +7,7 @@ ru:
       create:
         success:  "Тест успешно создан."
       index:
-        header:   "Список тестов"
+        header:   "Тесты"
       new:
         header:   "Новый тест"
       edit:
@@ -31,13 +31,13 @@ ru:
 
     badges:
       create:
-        success:  "Значок успешно создан"
+        success:  "Награда успешно создана"
       index:
-        header:   "Список значков"
+        header:   "Награды"
       new:
-        header:   "Новый значок"
+        header:   "Новая награда"
       edit:
-        header:   "Изменить Значок"
+        header:   "Изменить награду"
       headers:
         image_path: "Путь к файлу картинки"
         rule_name:  "Правило награждения"
