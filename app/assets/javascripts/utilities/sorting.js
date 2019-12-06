@@ -37,7 +37,7 @@ function sortRowsByTitle() {
 }
 
 function getTestTitle(row){
-  return row.querySelector("td").textContent
+  return row.querySelector(".title").textContent
 }
 
 function compareRowsAsc(row1, row2){
@@ -49,6 +49,7 @@ function compareRowsDesc(row1, row2){
 }
 
 function compareRows(row1, row2, direction) {
+  debugger
   var testTitle1 = getTestTitle(row1)
   var testTitle2 = getTestTitle(row2)
 

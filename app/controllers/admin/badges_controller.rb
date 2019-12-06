@@ -1,4 +1,4 @@
-class Admin::BadgesController < ApplicationController
+class Admin::BadgesController < Admin::BaseController
 
   before_action :load_badge, only: %i[edit update destroy update_inline]
   before_action :load_rewarding_rules_translate, only: %i[new create edit update index]
