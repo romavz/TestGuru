@@ -21,6 +21,7 @@ ru:
   links:
     start:    "Старт"
     new:      "Создать %{model}"
+    add:      "Добавить %{model}"
     show:     "Показать"
     edit:     "Править"
     destroy:  "Удалить"
@@ -34,6 +35,7 @@ ru:
     <<: *CATEGORY
     <<: *QUESTIONS
     <<: *IMAGE
+    answers:    "Ответы"
     name:       "Название"
     actions:    "Действия"
 
@@ -123,6 +125,7 @@ ru:
         <<: *LEVEL
         <<: *CATEGORY
         <<: *AUTHOR
+        <<: *QUESTIONS
 
       question:
         <<: *ANSWER

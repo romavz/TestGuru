@@ -26,7 +26,7 @@ class BadgeIssuingService
   end
 
   def issuing_success?(rule_name, rule_value)
-    return send(rule_name) if rule_value.nil?
+    return send(rule_name) if rule_value.blank?
 
     send(rule_name, rule_value)
   end
