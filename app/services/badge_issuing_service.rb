@@ -34,14 +34,12 @@ class BadgeIssuingService
   # ---------------------------
   # Issuing rules section
 
-  # Успешно пройден первый тест
   def first_test_passed
     success_user_test_passages_count = user.test_passages.successfull.size
 
     success_user_test_passages_count == 1
   end
 
-  # Тест пройден с одной попытки
   def test_passed_by_one_try
     test_passages = test.user_test_passages(user)
     successfull_test_passages = test_passages.successfull

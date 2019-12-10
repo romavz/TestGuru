@@ -1,7 +1,6 @@
 module Validators
   class ImageExistenceValidator
     WEB_RESOURCE = %r{^(https?:\/\/.*)$}i.freeze
-    # image file may be nested in 0-2 subdirectory in images direcrory
     LOCAL_FILE   = %r{^(\w+\/)*\w+(\.(png|jpg|jpeg|gif))$}i.freeze
     IMAGES_DIR   = Rails.root.join('app', 'assets', 'images').freeze
     HTTP_STATUS_CODES = Rack::Utils::SYMBOL_TO_STATUS_CODE

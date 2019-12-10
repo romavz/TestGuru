@@ -55,7 +55,6 @@ class Admin::BadgesController < Admin::BaseController
 
   def load_rewarding_rules_translate
     t_path = "badges.rewarding_rules"
-    # @rewarding_rules = Badge::REWARDING_RULES.map { |rule| [rule.to_s, t("#{t_path}.#{rule}")] }
     @rewarding_rules = Badge::REWARDING_RULES.map { |rule| [rule.to_s, t("#{t_path}.#{rule}")] }.to_h
   end
 
