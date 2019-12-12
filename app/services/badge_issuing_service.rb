@@ -1,4 +1,6 @@
 class BadgeIssuingService
+  include RewardingRule
+
   attr_reader :user
   attr_reader :test
   attr_reader :test_passage
@@ -34,20 +36,20 @@ class BadgeIssuingService
   # ---------------------------
   # Issuing rules section
 
-  def first_test_passed
+  rewarding_rule :first_test_passed do
     success_user_test_passages_count = user.test_passages.successfull.size
 
     success_user_test_passages_count == 1
   end
 
-  def test_passed_by_one_try
+  rewarding_rule :test_passed_by_one_try do
     test_passages = test.user_test_passages(user)
     successfull_test_passages = test_passages.successfull
 
     test_passages.size == 1 && successfull_test_passages.size == 1
   end
 
-  def category_complete(category_id)
+  rewarding_rule :category_complete do |category_id|
     category = Category.find_by(id: category_id.to_i)
     return false if category.nil?
 
@@ -57,7 +59,7 @@ class BadgeIssuingService
     passed_tests_count == category_tests_count
   end
 
-  def level_complete(level_number)
+  rewarding_rule :level_complete do |level_number|
     tests_by_level_count = Test.select_by_level(level_number.to_i).size
     passed_tests_count = user.passed_tests.select_by_level(level_number).size
 
