@@ -44,3 +44,12 @@ ru:
         rule_value: "Параметр правила (необязательный)"
         multiple:   "Многократный"
 
+  activerecord:
+    errors:
+      models:
+        badge:
+          attributes:
+            rule_name:
+              inclusion:  "'%{value}' не входит в список правил награждения"
+            image_path:
+              file_not_found: "не найден: '%{value}'"

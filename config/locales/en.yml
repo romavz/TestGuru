@@ -39,9 +39,6 @@ en:
     name:       "Name"
     actions:    "Actions"
 
-  exceptions:
-    file_not_found: "not exist"
-
   shared:
     errors:
       header:

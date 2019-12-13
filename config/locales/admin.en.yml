@@ -43,3 +43,13 @@ en:
         rule_name:  "Rule name"
         rule_value: "Rule value (optional)"
         multiple:   "Multiple"
+
+  activerecord:
+    errors:
+      models:
+        badges:
+          attributes:
+            rule_name:
+              inclusion:  "%{value} is out of pissible range"
+            image_path:
+              file_not_found: "not_found: '%{value}'"

@@ -4,19 +4,16 @@ class Badge < ApplicationRecord
 
   validates :title, :rule_name, presence: true
   validate :image_path_must_locate_to_existing_file
+  validates :rule_name, inclusion: { in: BadgeIssuingService.rewarding_rules }
 
   def image_path_must_locate_to_existing_file
-    Validators::ImageExistenceValidator.run!(image_path)
-  rescue AppExceptions::BaseException => error
-    errors.add :image_path, error.message
+    Validators::ImageExistenceValidator.validate!(image_path)
+  rescue AppExceptions::FileNotFoundException
+    errors.add :image_path, :file_not_found
   end
 
   def for_single_time_use?
     !multiple
-  end
-
-  def for_many_tyme_use?
-    multiple
   end
 
 end

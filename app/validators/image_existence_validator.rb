@@ -1,5 +1,5 @@
 module Validators
-  class ImageExistenceValidator
+  class ImageExistenceValidator < Validators::BaseValidator
     WEB_RESOURCE = %r{^(https?:\/\/.*)$}i.freeze
     LOCAL_FILE   = %r{^(\w+\/)*\w+(\.(png|jpg|jpeg|gif))$}i.freeze
     IMAGES_DIR   = Rails.root.join('app', 'assets', 'images').freeze
@@ -7,18 +7,7 @@ module Validators
 
     attr_reader :path_to_file
 
-    def self.run!(path_to_file)
-      new.run!(path_to_file)
-    end
-
-    def self.valid?(path_to_file)
-      run!(path_to_file)
-      true
-    rescue AppExceptions::FileNotFoundException
-      false
-    end
-
-    def run!(path_to_file)
+    def validate!(path_to_file)
       @path_to_file = path_to_file
       raise AppExceptions::FileNotFoundException, path_to_file unless file_exist?
     end
