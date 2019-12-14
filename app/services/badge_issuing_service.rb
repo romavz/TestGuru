@@ -8,7 +8,7 @@ class BadgeIssuingService
   def initialize(test_passage)
     @test_passage = test_passage
     @user = test_passage.user
-    @test = test_passage.test.include(category)
+    @test = test_passage.test
   end
 
   def call
@@ -65,7 +65,7 @@ class BadgeIssuingService
     tests_by_level_count = Test.select_by_level(level_number).size
     return false if tests_by_level_count < 1
 
-    user.passed_tests.select_by_level(level_number)
+    passed_tests = user.passed_tests.select_by_level(level_number)
     passed_tests_count = passed_tests.size
     uniq_passed_tests_count = passed_tests.distinct.size
 
