@@ -6,7 +6,7 @@ class Validators::BaseValidator
     end
 
     def valid?(subject)
-      vadilate!(subject)
+      validate!(subject)
       true
     rescue StandardError
       false

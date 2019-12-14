@@ -34,14 +34,6 @@ class Admin::BadgesController < Admin::BaseController
     end
   end
 
-  def update_inline
-    if @badge.update(badge_params)
-      redirect_to admin_badges_path
-    else
-      render :index
-    end
-  end
-
   def destroy
     @badge.destroy
     redirect_to admin_badges_path

@@ -47,6 +47,7 @@ en:
     errors:
       models:
         badges:
+          rule_and_value_combination_already_in_use: "Badge with same rule & value already exist"
           attributes:
             rule_name:
               inclusion:  "%{value} is out of pissible range"
