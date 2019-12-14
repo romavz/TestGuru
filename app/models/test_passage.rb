@@ -6,9 +6,9 @@ class TestPassage < ApplicationRecord
   belongs_to :test
   belongs_to :current_question, class_name: "Question", optional: true
 
-  enum complete_status: { failed: 0, successfull: 1 }
+  before_validation :load_first_question, on: [:create]
 
-  before_validation :set_current_question
+  scope :passed, -> { where(passed: true) }
 
   def progress
     "#{current_question_number}/#{questions_count}"
@@ -40,11 +40,13 @@ class TestPassage < ApplicationRecord
 
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
+    step_to_next_question
+    update_passed_state
     save!
   end
 
-  def update_complete_status
-    update(complete_status: correct_questions_ratio >= SUCCESS_PERCENT ? :successfull : :failed) if completed?
+  def update_passed_state
+    update!(passed: correct_questions_ratio >= SUCCESS_PERCENT)
   end
 
   def correct_questions_ratio
@@ -54,22 +56,17 @@ class TestPassage < ApplicationRecord
   private
 
   def questions
-    test.questions.order(:id)
+    @questions ||= test.questions.order(:id)
   end
 
-  def set_current_question
-    return if !new_record? && completed?
-
-    self.current_question = next_question
-    update_complete_status
+  def load_first_question
+    self.current_question = questions.first
   end
 
-  def next_question
-    if new_record?
-      questions.first
-    else
-      questions.where('id > ?', current_question.id).first
-    end
+  def step_to_next_question
+    return if completed?
+
+    self.current_question = questions.next_question(current_question.id)
   end
 
   def correct_answer?(answer_ids)

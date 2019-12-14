@@ -17,18 +17,13 @@ class User < ApplicationRecord
   has_many  :owned_tests, class_name: "Test", inverse_of: :author, foreign_key: "author_id",
             dependent: :restrict_with_exception # rubocop:disable Layout/AlignHash
 
-  def already_has_this_badge?(badge_id)
-    issued_badges.where(badge_id: badge_id).size.positive?
+  def already_has_this_badge?(rule_name, rule_value)
+    badge = user.badges.find_by(rule_name: rule_name, rule_value: rule_value)
+    badge.present?
   end
 
   def passed_tests
-    passages = test_passages.successfull
-    Test.joins(
-      <<-SQL
-        INNER JOIN (#{passages.to_sql}) AS passages
-        ON tests.id = passages.test_id
-      SQL
-    ).distinct
+    tests.where(test_passages: { passed: true })
   end
 
   def test_passage(test)

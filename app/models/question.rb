@@ -5,4 +5,6 @@ class Question < ApplicationRecord
 
   validates :body, presence: true
 
+  scope :next_question, ->(current_question_id) { where('id > ?', current_question_id).first }
+
 end
