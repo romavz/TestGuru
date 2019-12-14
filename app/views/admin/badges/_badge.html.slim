@@ -4,7 +4,6 @@ tr
   td.align-middle.title = badge.title
   td.align-middle = @rewarding_rules[badge.rule_name]
   td.align-middle = badge.rule_value
-  td.align-middle = { false => "-", true => "+" }[badge.multiple]
   td.align-middle
     = link_to t("links.edit"),
       edit_admin_badge_path(badge),

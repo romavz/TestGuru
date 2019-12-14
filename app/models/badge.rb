@@ -12,8 +12,4 @@ class Badge < ApplicationRecord
     errors.add :image_path, :file_not_found
   end
 
-  def for_single_time_use?
-    !multiple
-  end
-
 end

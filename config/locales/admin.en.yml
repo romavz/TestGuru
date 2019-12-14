@@ -42,7 +42,6 @@ en:
         image_path: "Path to image"
         rule_name:  "Rule name"
         rule_value: "Rule value (optional)"
-        multiple:   "Multiple"
 
   activerecord:
     errors:

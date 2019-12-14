@@ -137,7 +137,6 @@ ru:
         image_path: "Путь к картинке"
         rule_name:  "Правило награждения"
         rule_value: "Параметр правила награждения"
-        multiple:   "Многократный"
 
       messages:
         <<: *BLANK

@@ -137,7 +137,6 @@ en:
         image_path: "Path to image"
         rule_name:  "Awarding rule"
         rule_value: "Rule argument"
-        multiple:   "Multiple"
 
     errors:
       messages:

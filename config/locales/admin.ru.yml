@@ -42,7 +42,6 @@ ru:
         image_path: "Путь к файлу картинки"
         rule_name:  "Правило награждения"
         rule_value: "Параметр правила (необязательный)"
-        multiple:   "Многократный"
 
   activerecord:
     errors:

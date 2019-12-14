@@ -20,10 +20,6 @@ div.edit_form
       = f.text_field :rule_value, id: :badge_rule_value, class: "form-control"
 
     div.mt-3
-      = f.label :multiple
-      = f.check_box :multiple, id: :badge_multiple
-
-    div.mt-3
       = f.submit
 br
 = link_to t('links.back'), admin_badges_path
