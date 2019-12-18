@@ -1,7 +1,6 @@
 class Admin::BadgesController < Admin::BaseController
 
   before_action :load_badge, only: %i[edit update destroy update_inline]
-  before_action :load_rewarding_rules_translate, only: %i[new create edit update index]
 
   def index
     @badges = Badge.all
@@ -43,11 +42,6 @@ class Admin::BadgesController < Admin::BaseController
 
   def load_badge
     @badge = Badge.find_by(id: params[:id])
-  end
-
-  def load_rewarding_rules_translate
-    t_path = "badges.rewarding_rules"
-    @rewarding_rules = BadgeIssuingService.rewarding_rules.map { |rule| [rule.to_s, t("#{t_path}.#{rule}")] }.to_h
   end
 
   def badge_params

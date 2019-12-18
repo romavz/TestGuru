@@ -13,7 +13,7 @@ div.edit_form
 
     div.mt-3
       = f.label :rule_name
-      = f.collection_select :rule_name, @rewarding_rules, :first, :last, { prompt: true}, { class: "custom-select" }
+      = f.collection_select :rule_name, rewarding_rules, :first, :last, { prompt: true}, { class: "custom-select" }
 
     div.mt-3
       = f.label :rule_value

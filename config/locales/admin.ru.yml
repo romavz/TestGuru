@@ -47,7 +47,7 @@ ru:
     errors:
       models:
         badge:
-          rule_and_value_combination_already_in_use: "Значек с таким правилом и параметром награждения уже существует"
+          taken: "Значек с таким правилом и параметром награждения уже существует"
           attributes:
             rule_name:
               inclusion:  "'%{value}' не входит в список правил награждения"
