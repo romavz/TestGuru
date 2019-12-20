@@ -20,7 +20,7 @@ class Test < ApplicationRecord
       .order(title: :desc)
   }
 
-  scope :select_by_category,  ->(category) { joins(:category).where(categories: { id: category.id }) }
+  scope :select_by_category,  ->(category) { where(category: category) }
   scope :select_by_level,     ->(level) { where(level: level) }
 
   def user_test_passages(user)

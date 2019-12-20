@@ -9,10 +9,11 @@ class User < ApplicationRecord
           :validatable,
           :confirmable
 
-  has_many :issued_badges, dependent: :destroy
-  has_many :badges, through: :issued_badges, dependent: :destroy
   has_many :gists, dependent: :destroy
   has_many :test_passages, dependent: :destroy
+  has_many :passed_test_passages, -> { where passed: true }, class_name: "TestPassage"
+  has_many :issued_badges, through: :test_passages, dependent: :destroy
+  has_many :badges, -> { distinct }, through: :issued_badges
   has_many :tests, through: :test_passages, dependent: :destroy
   has_many  :owned_tests, class_name: "Test", inverse_of: :author, foreign_key: "author_id",
             dependent: :restrict_with_exception # rubocop:disable Layout/AlignHash

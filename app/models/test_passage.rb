@@ -5,10 +5,20 @@ class TestPassage < ApplicationRecord
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: "Question", optional: true
+  has_many :issued_badges, dependent: :destroy
+  has_many :badges, through: :issued_badges
 
   before_validation :load_first_question, on: [:create]
 
   scope :passed, -> { where(passed: true) }
+  scope :select_by_category, ->(category) { joins(:test).where(tests: { category: category }) }
+  scope :select_by_level, ->(level) { joins(:test).where(tests: { level: level }) }
+
+  scope :without_this_badge, ->(badge) {
+    # К этим пассажам могут быть прикреплены другие значки,
+    # или могут быть совсем без значков
+    where.not(id: IssuedBadge.where(badge: badge).select("test_passage_id"))
+  }
 
   def progress
     "#{current_question_number}/#{questions_count}"

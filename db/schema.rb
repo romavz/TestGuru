@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_16_201519) do
+ActiveRecord::Schema.define(version: 2019_12_19_182412) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,12 +52,12 @@ ActiveRecord::Schema.define(version: 2019_12_16_201519) do
   end
 
   create_table "issued_badges", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.bigint "test_passage_id", null: false
     t.bigint "badge_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["badge_id"], name: "index_issued_badges_on_badge_id"
-    t.index ["user_id"], name: "index_issued_badges_on_user_id"
+    t.index ["test_passage_id"], name: "index_issued_badges_on_test_passage_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -120,5 +120,5 @@ ActiveRecord::Schema.define(version: 2019_12_16_201519) do
   end
 
   add_foreign_key "issued_badges", "badges"
-  add_foreign_key "issued_badges", "users"
+  add_foreign_key "issued_badges", "test_passages"
 end
