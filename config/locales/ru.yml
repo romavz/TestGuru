@@ -89,7 +89,8 @@ ru:
 
   badges:
     index:
-      header: "Награды"
+      header: "Мои награды"
+      all_badges: "Возможные награды"
 
     rewarding_rules:
       first_test_passed:      "Пройден первый тест"

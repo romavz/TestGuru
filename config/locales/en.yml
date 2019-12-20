@@ -89,7 +89,8 @@ en:
 
   badges:
     index:
-      header: "Deserved badges"
+      header: "My badges"
+      all_badges: "All possible badges"
 
     rewarding_rules:
       first_test_passed:      "First test passed"

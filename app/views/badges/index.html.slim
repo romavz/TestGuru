@@ -1,15 +1,7 @@
 div.row.justify-content-center.mt-3
   div.col.col-md-8
-    h1 = t('.header')
+    = render partial: "badge_list", locals: { title: t('.header'), badges: @user_badges }
 
-    table class="table mt-3"
-      thead
-        tr
-          th.col-1 scope="col"
-          th.sort-by-title.pointer scope="col"
-            = t('headers.name')
-            =< octicon 'triangle-up', class: 'text-success hide'
-            = octicon 'triangle-down', class: 'text-success hide'
+    div.mt-5
 
-      tbody
-        = render @badges
+    = render partial: "badge_list", locals: { title: t('.all_badges'), badges: @all_badges }
