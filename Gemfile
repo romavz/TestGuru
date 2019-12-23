@@ -11,7 +11,7 @@ gem 'rails', '~> 5.2.2'
 gem 'pg'
 # gem 'sqlite3', '~> 1.3.0'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.12'
 
 gem 'httparty', '0.17.1'
 
