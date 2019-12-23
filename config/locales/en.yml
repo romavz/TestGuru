@@ -1,6 +1,7 @@
 en:
 
   aliases:
+    - &BADGE      { badge:      "Badge" }
     - &AUTHOR     { author:     "Author" }
     - &TEST       { test:       "Test" }
     - &LEVEL      { level:      "Level" }
@@ -13,12 +14,14 @@ en:
     - &CORRECT    { correct:    "Correct" }
     - &BLANK      { blank:      "can't be blank" }
     - &REQUIRED   { required:   "can't be blank" }
+    - &IMAGE      { image:      "Image" }
 
   hello: "Hello world"
 
   links:
     start:    "Start"
     new:      "New %{model}"
+    add:      "Add %{model}"
     show:     "Show"
     edit:     "Edit"
     destroy:  "Delete"
@@ -31,6 +34,9 @@ en:
     <<: *LEVEL
     <<: *CATEGORY
     <<: *QUESTIONS
+    <<: *IMAGE
+    answers:    "Ответы"
+    name:       "Name"
     actions:    "Actions"
 
   shared:
@@ -38,6 +44,8 @@ en:
       header:
         one:    "%{count} error detected"
         other:  "%{count} errors detected"
+
+
 
   helpers:
     submit:
@@ -79,7 +87,16 @@ en:
     new:
       feedback: "New feedback"
 
+  badges:
+    index:
+      header: "My badges"
+      all_badges: "All possible badges"
 
+    rewarding_rules:
+      first_test_passed:      "First test passed"
+      test_passed_by_one_try: "Test passed by one try"
+      category_complete:      "Complete category"
+      level_complete:         "Complete level"
 
   activemodel:
     models:
@@ -98,6 +115,7 @@ en:
       <<: *QUESTION
       <<: *ANSWER
       <<: *CATEGORY
+      <<: *BADGE
 
     attributes:
       test:
@@ -105,6 +123,7 @@ en:
         <<: *LEVEL
         <<: *CATEGORY
         <<: *AUTHOR
+        <<: *QUESTIONS
 
       question:
         <<: *ANSWER
@@ -112,6 +131,13 @@ en:
       answer:
         <<: *TEXT
         <<: *CORRECT
+
+      badge:
+        <<: *TITLE
+        <<: *IMAGE
+        image_path: "Path to image"
+        rule_name:  "Awarding rule"
+        rule_value: "Rule argument"
 
     errors:
       messages:

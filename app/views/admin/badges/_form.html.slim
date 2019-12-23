@@ -1,0 +1,26 @@
+
+div.edit_form
+  = form_with model: [:admin, @badge], local: true do |f|
+    = render 'shared/errors', resource: @badge
+
+    div.mt-3
+      = f.label :title
+      = f.text_field :title, id: :badge_title, class: "form-control"
+
+    div.mt-3
+      = f.label :image_path
+      = f.text_field :image_path, id: :badge_image_path, class: "form-control"
+
+    div.mt-3
+      = f.label :rule_name
+      = f.collection_select :rule_name, rewarding_rules, :first, :last, { prompt: true}, { class: "custom-select" }
+
+    div.mt-3
+      = f.label :rule_value
+      = f.text_field :rule_value, id: :badge_rule_value, class: "form-control"
+
+    div.mt-3
+      = f.submit
+br
+= link_to t('links.back'), admin_badges_path
+br

@@ -70,3 +70,16 @@ Answer.create!(
     { correct: false, question: questions[10], body: "NEW" }
   ]
 )
+
+Badge.create!(
+  [
+    { title: "Первый тест пройден", rule_name: "first_test_passed", rule_value: nil, image_path: "https://image.flaticon.com/icons/png/128/1579/1579490.png" },
+    { title: "Тест пройден с одной попытки", rule_name: "test_passed_by_one_try", rule_value: nil, image_path: "https://image.flaticon.com/icons/png/128/1579/1579506.png" },
+    { title: "Завершен уровень 1", rule_name: "level_complete", rule_value: "1", image_path: "https://image.flaticon.com/icons/png/128/1579/1579492.png" },
+    { title: "Завершен уровень 2", rule_name: "level_complete", rule_value: "2", image_path: "https://image.flaticon.com/icons/png/128/1579/1579517.png" },
+    { title: "Завершен уровень 3", rule_name: "level_complete", rule_value: "3", image_path: "https://image.flaticon.com/icons/png/128/1579/1579493.png" },
+    { title: "Завершена категория 'История'", rule_name: "category_complete", rule_value: "1", image_path: "https://image.flaticon.com/icons/png/128/1579/1579496.png" },
+    { title: "Завершена категория 'География'", rule_name: "category_complete", rule_value: "2", image_path: "https://image.flaticon.com/icons/png/128/1579/1579497.png" },
+    { title: "Завершена категория 'Базы данных'", rule_name: "category_complete", rule_value: "3", image_path: "https://image.flaticon.com/icons/png/128/1579/1579495.png" },
+  ]
+)

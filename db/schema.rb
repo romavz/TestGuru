@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_10_171239) do
+ActiveRecord::Schema.define(version: 2019_12_16_201519) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
     t.text "body", null: false
@@ -19,6 +22,17 @@ ActiveRecord::Schema.define(version: 2019_03_10_171239) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "badges", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "image_path", null: false
+    t.string "rule_name", null: false
+    t.string "rule_value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["rule_name", "rule_value"], name: "badge_rewarding_rules", unique: true
+    t.index ["title"], name: "index_badges_on_title", unique: true
   end
 
   create_table "categories", force: :cascade do |t|
@@ -37,6 +51,15 @@ ActiveRecord::Schema.define(version: 2019_03_10_171239) do
     t.index ["user_id"], name: "index_gists_on_user_id"
   end
 
+  create_table "issued_badges", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "badge_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["badge_id"], name: "index_issued_badges_on_badge_id"
+    t.index ["user_id"], name: "index_issued_badges_on_user_id"
+  end
+
   create_table "questions", force: :cascade do |t|
     t.text "body", null: false
     t.integer "test_id", null: false
@@ -52,6 +75,7 @@ ActiveRecord::Schema.define(version: 2019_03_10_171239) do
     t.integer "correct_questions", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "passed", default: false, null: false
     t.index ["current_question_id"], name: "index_test_passages_on_current_question_id"
     t.index ["test_id"], name: "index_test_passages_on_test_id"
     t.index ["user_id"], name: "index_test_passages_on_user_id"
@@ -95,4 +119,6 @@ ActiveRecord::Schema.define(version: 2019_03_10_171239) do
     t.index ["type"], name: "index_users_on_type"
   end
 
+  add_foreign_key "issued_badges", "badges"
+  add_foreign_key "issued_badges", "users"
 end

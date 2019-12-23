@@ -1,0 +1,15 @@
+tr
+  td.align-middle
+    = failsafe_image_tag "#{badge.image_path}", size: "70x70", alt: t("headers.image")
+  td.align-middle.title = badge.title
+  td.align-middle = rewarding_rules[badge.rule_name]
+  td.align-middle = badge.rule_value
+  td.align-middle
+    = link_to t("links.edit"),
+      edit_admin_badge_path(badge),
+      data: { badge_id: badge.id, title1: t("links.edit"), title2: t("links.cancel") }
+  td.align-middle
+    = link_to t("links.destroy"),
+      admin_badge_path(badge),
+      method: :delete,
+      data: { confirm: "Are you shure?" }

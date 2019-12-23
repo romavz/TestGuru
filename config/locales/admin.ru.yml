@@ -7,24 +7,49 @@ ru:
       create:
         success:  "Тест успешно создан."
       index:
-        header:   "Список Тестов"
+        header:   "Тесты"
       new:
-        header:   "Новый Тест"
+        header:   "Новый тест"
       edit:
-        header:   "Изменить Тест"
+        header:   "Изменить тест"
 
     answers:
       edit:
-        header:   "Изменить Ответ"
+        header:   "Изменить ответ"
       new:
-        header:   "Новый Ответ"
+        header:   "Новый ответ"
 
     questions:
       new:
-        header:   "Новый Вопрос"
+        header:   "Новый вопрос"
       edit:
         header:   "Изменить вопрос"
 
     gists:
       index:
         header:   "Список Gist-ов"
+
+    badges:
+      create:
+        success:  "Награда успешно создана"
+      index:
+        header:   "Награды"
+      new:
+        header:   "Новая награда"
+      edit:
+        header:   "Изменить награду"
+      headers:
+        image_path: "Путь к файлу картинки"
+        rule_name:  "Правило награждения"
+        rule_value: "Параметр правила (необязательный)"
+
+  activerecord:
+    errors:
+      models:
+        badge:
+          taken: "Значек с таким правилом и параметром награждения уже существует"
+          attributes:
+            rule_name:
+              inclusion:  "'%{value}' не входит в список правил награждения"
+            image_path:
+              file_not_found: "не найден: '%{value}'"

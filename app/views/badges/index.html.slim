@@ -1,0 +1,7 @@
+div.row.justify-content-center.mt-3
+  div.col.col-md-8
+    = render partial: "badge_list", locals: { title: t('.header'), badges: @user_badges }
+
+    div.mt-5
+
+    = render partial: "badge_list", locals: { title: t('.all_badges'), badges: @all_badges }

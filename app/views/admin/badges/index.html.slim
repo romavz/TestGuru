@@ -1,0 +1,25 @@
+div.row.justify-content-center.mt-3
+  div.col.col-md-8
+    h1 = t('.header')
+
+    div
+      = link_to t('links.new', model: Badge.model_name.human), new_admin_badge_path
+
+    div
+      = render 'shared/errors', resource: @badge
+
+    table class="table mt-3"
+      thead
+        tr
+          th scope="col"
+          th.col-3.sort-by-title.pointer scope="col"
+            = t('headers.name')
+            =< octicon 'triangle-up', class: 'text-success hide'
+            = octicon 'triangle-down', class: 'text-success hide'
+          - headers = 'admin.badges.headers'
+          th.col-3 scope="col" = t(headers + '.rule_name')
+          th scope="col" = t(headers + '.rule_value')
+          th { scope="col" colspan="3" } = t('headers.actions')
+
+      tbody
+        = render @badges

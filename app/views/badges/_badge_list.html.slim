@@ -1,0 +1,13 @@
+    h1 = title
+
+    table class="table mt-3"
+      thead
+        tr
+          th.col-1 scope="col"
+          th.sort-by-title.pointer scope="col"
+            = t('headers.name')
+            =< octicon 'triangle-up', class: 'text-success hide'
+            = octicon 'triangle-down', class: 'text-success hide'
+
+      tbody
+        = render badges

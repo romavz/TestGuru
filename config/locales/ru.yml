@@ -1,6 +1,7 @@
 ru:
 
   aliases:
+    - &BADGE      { badge:      "Награда" }
     - &AUTHOR     { author:     "Автор" }
     - &TEST       { test:       "Тест" }
     - &LEVEL      { level:      "Уровень" }
@@ -13,12 +14,14 @@ ru:
     - &CORRECT    { correct:    "Правильный" }
     - &BLANK      { blank:      "не может быть пустым" }
     - &REQUIRED   { required:   "не может быть пустым" }
+    - &IMAGE      { image:      "Картинка" }
 
   hello: "Превед Мир"
 
   links:
     start:    "Старт"
     new:      "Создать %{model}"
+    add:      "Добавить %{model}"
     show:     "Показать"
     edit:     "Править"
     destroy:  "Удалить"
@@ -31,6 +34,9 @@ ru:
     <<: *LEVEL
     <<: *CATEGORY
     <<: *QUESTIONS
+    <<: *IMAGE
+    answers:    "Ответы"
+    name:       "Название"
     actions:    "Действия"
 
   shared:
@@ -40,7 +46,6 @@ ru:
         many:   "Обнаружено %{count} ошибок"
         one:    "Обнаружена %{count} ошибка"
         other:  "Обнаружено %{count} ошибки"
-
 
   helpers:
     submit:
@@ -82,6 +87,16 @@ ru:
     new:
       feedback: "Новый отзыв"
 
+  badges:
+    index:
+      header: "Мои награды"
+      all_badges: "Возможные награды"
+
+    rewarding_rules:
+      first_test_passed:      "Пройден первый тест"
+      test_passed_by_one_try: "Тест пройден с одной попытки"
+      category_complete:      "Завершена категория"
+      level_complete:         "Завершен уровень"
 
   activemodel:
     models:
@@ -100,6 +115,7 @@ ru:
       <<: *QUESTION
       <<: *ANSWER
       <<: *CATEGORY
+      <<: *BADGE
 
     attributes:
       test:
@@ -107,6 +123,7 @@ ru:
         <<: *LEVEL
         <<: *CATEGORY
         <<: *AUTHOR
+        <<: *QUESTIONS
 
       question:
         <<: *ANSWER
@@ -115,8 +132,15 @@ ru:
         <<: *TEXT
         <<: *CORRECT
 
-    errors:
+      badge:
+        <<: *TITLE
+        <<: *IMAGE
+        image_path: "Путь к картинке"
+        rule_name:  "Правило награждения"
+        rule_value: "Параметр правила награждения"
+
       messages:
         <<: *BLANK
         <<: *REQUIRED
         record_not_found: "Запись не найдена"
+

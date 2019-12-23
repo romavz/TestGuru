@@ -1,15 +1,17 @@
-h1 #{@test.title}
+div.row.justify-content-center.mt-3
+  div.col.col-md-8
+    h1 #{@test.title}
 
-p #{@question.body}
+    p #{@question.body}
 
-h2 Answers
+    h2 = t('headers.answers')
 
-div
-  = link_to "New answer", new_admin_question_answer_path(@question)
+    div
+      = link_to link_to t('links.add', model: Answer.model_name.human), new_admin_question_answer_path(@question)
 
-ol =render @question.answers
+    ol =render @question.answers
 
-div
-  => link_to "Edit", edit_admin_question_path(@question)
-  '|
-  =< link_to "Back", admin_test_path(@test)
+    div
+      => link_to t('links.edit'), edit_admin_question_path(@question)
+      '|
+      =< link_to t('links.back'), admin_test_path(@test)
