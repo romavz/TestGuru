@@ -14,10 +14,8 @@ class TestPassage < ApplicationRecord
   scope :select_by_category, ->(category) { joins(:test).where(tests: { category: category }) }
   scope :select_by_level, ->(level) { joins(:test).where(tests: { level: level }) }
 
-  scope :without_this_badge, ->(badge) {
-    # К этим пассажам могут быть прикреплены другие значки,
-    # или могут быть совсем без значков
-    where.not(id: IssuedBadge.where(badge: badge).select("test_passage_id"))
+  scope :after_date, ->(date) {
+    where("test_passages.created_at > ?", date)
   }
 
   def progress
