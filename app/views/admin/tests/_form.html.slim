@@ -13,7 +13,15 @@ div.edit_form
 
     div.mt-3
       = f.label :category_id
-      = f.collection_select :category_id, Category.all, :id, :title, { prompt: true}, { class: "custom-select" }
+      = f.collection_select :category_id, Category.all, :id, :title, { prompt: true }, { class: "custom-select" }
+
+    div.mt-3
+      = f.label :time_limit
+      = f.text_field :time_limit, id: :time_limit, class: "form-control"
+
+      div.mt-3
+      = f.label :time_scale
+      = f.collection_select :time_scale, TimeScale.to_a, :last, :first, { prompt: true }, { class: "custom-select" }
 
     div.mt-3
       = f.submit

@@ -35,11 +35,34 @@ ru:
     <<: *CATEGORY
     <<: *QUESTIONS
     <<: *IMAGE
+    time_limit: "Таймер"
     answers:    "Ответы"
     name:       "Название"
     actions:    "Действия"
 
   shared:
+    time_scale:
+      seconds:
+        few:    "%{count} секунды"
+        many:   "%{count} секунд"
+        one:    "%{count} секунда"
+        other:  "%{count} секунды"
+      minutes:
+        few:    "%{count} минуты"
+        many:   "%{count} минут"
+        one:    "%{count} минута"
+        other:  "%{count} минут"
+      hours:
+        few:    "%{count} часа"
+        manu:   "%{count} часов"
+        one:    "%{count} час"
+        other:  "%{count} часов"
+      days:
+        few:    "%{count} дня"
+        many:   "%{count} дней"
+        one:    "%{count} день"
+        other:  "%{count} дней"
+
     errors:
       header:
         few:    "Обнаружено %{count} ошибки"
@@ -58,6 +81,8 @@ ru:
         <<: *TITLE
         <<: *LEVEL
         category_id:  "Категория"
+        time_limit:   "Лимит времени"
+        time_scale:   "Шкала"
 
       question:
         <<: *TEXT
