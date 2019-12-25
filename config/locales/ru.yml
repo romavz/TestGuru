@@ -52,16 +52,6 @@ ru:
         many:   "%{count} минут"
         one:    "%{count} минута"
         other:  "%{count} минут"
-      hours:
-        few:    "%{count} часа"
-        manu:   "%{count} часов"
-        one:    "%{count} час"
-        other:  "%{count} часов"
-      days:
-        few:    "%{count} дня"
-        many:   "%{count} дней"
-        one:    "%{count} день"
-        other:  "%{count} дней"
 
     errors:
       header:
@@ -101,6 +91,7 @@ ru:
     show:
       next:   "Следующий"
       header: "Тест '%{test_title}'"
+      available_time: "Оставшееся время"
     gist:
       success: "<a href='%{link_to}'>Gist</a> успешно сохранен!"
       failure: "Во время сохранения Gist произошла ошибка"

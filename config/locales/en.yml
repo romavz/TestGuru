@@ -52,16 +52,6 @@ en:
         other:  "%{count} minutes"
         #
         #
-      hours:
-        one:    "%{count} hour"
-        other:  "%{count} hours"
-        #
-        #
-      days:
-        one:    "%{count} день"
-        other:  "%{count} дней"
-        #
-        #
 
     errors:
       header:
@@ -101,6 +91,7 @@ en:
     show:
       next:   "Next"
       header: "'%{test_title}' Test"
+      available_time: "Available time"
     gist:
       success: "<a href='%{link_to}'>Gist</a> was successfully created!"
       failure: "An arror accurred while saving gist"
