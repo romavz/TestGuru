@@ -9,7 +9,7 @@ document.addEventListener('turbolinks:load', function(){
   }
 
   var timer = document.getElementById("timer");
-  var availableTimeInSeconds = parseInt(timer.dataset.availableTime, 10);
+  var availableTimeInSeconds = parseInt(timer.dataset.availableTimeInSeconds, 10);
   var updateTimerShedullerID = null;
 
   showTimer();

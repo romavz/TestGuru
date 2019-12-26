@@ -1,5 +1,5 @@
 span#test_passage
-  h1 = t('.header', test_title: @test_passage.test.title)
+  h1 = t('.header', test_title: @test_passage.test_title)
 
   b
     => "(#{@test_passage.progress})"
@@ -18,7 +18,7 @@ span#test_passage
     div.p-2
       = t('.available_time')
       | :
-    div.p-2#timer data-available-time="#{@test_passage.available_time_in_seconds}"
+    div.p-2#timer data-available-time-in-seconds="#{@test_passage.available_time_in_seconds}"
 
   - options = { id: "answers_form", url: test_passage_path(@test_passage), method: :put, local: true }
   = form_with options do |form|

@@ -61,18 +61,14 @@ class TestPassage < ApplicationRecord
     (correct_questions.to_f * P100 / test.questions.count).round(1)
   end
 
-  def ending_time
-    created_at + time_limit
-  end
-
-  def time_limit
-    test.time_limit.send(test.time_scale)
-  end
-
   def available_time_in_seconds
     return 0 if completed?
 
-    (created_at + time_limit - Time.now).to_i
+    available_time.to_i
+  end
+
+  def test_title
+    test.title
   end
 
   private
@@ -91,14 +87,20 @@ class TestPassage < ApplicationRecord
     self.current_question = questions.next_question(current_question.id)
   end
 
-  # def update_elapsed_time
-  #   return if time_over?
-
-  #   self.elapsed_time = Time.now - created_at
-  # end
-
   def time_over?
-    Time.now - created_at >= time_limit
+    available_time > 0
+  end
+
+  def available_time
+    ending_time - Time.now
+  end
+
+  def ending_time
+    created_at + time_limit
+  end
+
+  def time_limit
+    test.time_limit.send(test.time_scale)
   end
 
   def correct_answer?(answer_ids)
