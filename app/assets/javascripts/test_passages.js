@@ -9,6 +9,8 @@ document.addEventListener('turbolinks:load', function(){
   }
 
   var timer = document.getElementById("timer");
+  if (!timer) { return; }
+
   var availableTimeInSeconds = parseInt(timer.dataset.availableTimeInSeconds, 10);
   var updateTimerShedullerID = null;
 
@@ -21,8 +23,7 @@ document.addEventListener('turbolinks:load', function(){
 
   function submitForm() {
     clearInterval(updateTimerShedullerID);
-    commit_btn = document.getElementsByName("commit")[0];
-    commit_btn.click()
+    document.forms["answers_form"].submit();
   }
 
   function updateTimer() {
@@ -41,5 +42,4 @@ document.addEventListener('turbolinks:load', function(){
 
     timer.innerText = minutes + " : " + seconds;
   }
-
-})
+});

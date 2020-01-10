@@ -43,10 +43,12 @@ class TestPassage < ApplicationRecord
   end
 
   def completed?
-    current_question.nil? || time_over?
+    current_question.nil?
   end
 
   def accept!(answer_ids)
+    return if completed?
+
     self.correct_questions += 1 if correct_answer?(answer_ids)
     step_to_next_question
     update_passed_state
@@ -84,23 +86,25 @@ class TestPassage < ApplicationRecord
   def step_to_next_question
     return if completed?
 
-    self.current_question = questions.next_question(current_question.id)
+    self.current_question = time_over? ? nil : questions.next_question(current_question.id)
   end
 
   def time_over?
-    available_time > 0
+    available_time.zero?
   end
 
   def available_time
+    return 0 if Time.now >= ending_time
+
     ending_time - Time.now
   end
 
   def ending_time
-    created_at + time_limit
+    @ending_time ||= created_at + time_limit
   end
 
   def time_limit
-    test.time_limit.send(test.time_scale)
+    @time_limit ||= test.time_limit.send(test.time_scale)
   end
 
   def correct_answer?(answer_ids)
