@@ -35,11 +35,24 @@ ru:
     <<: *CATEGORY
     <<: *QUESTIONS
     <<: *IMAGE
+    time_limit: "Таймер"
     answers:    "Ответы"
     name:       "Название"
     actions:    "Действия"
 
   shared:
+    time_scale:
+      seconds:
+        few:    "%{count} секунды"
+        many:   "%{count} секунд"
+        one:    "%{count} секунда"
+        other:  "%{count} секунды"
+      minutes:
+        few:    "%{count} минуты"
+        many:   "%{count} минут"
+        one:    "%{count} минута"
+        other:  "%{count} минут"
+
     errors:
       header:
         few:    "Обнаружено %{count} ошибки"
@@ -58,6 +71,8 @@ ru:
         <<: *TITLE
         <<: *LEVEL
         category_id:  "Категория"
+        time_limit:   "Лимит времени"
+        time_scale:   "Шкала"
 
       question:
         <<: *TEXT
@@ -76,6 +91,7 @@ ru:
     show:
       next:   "Следующий"
       header: "Тест '%{test_title}'"
+      available_time: "Оставшееся время"
     gist:
       success: "<a href='%{link_to}'>Gist</a> успешно сохранен!"
       failure: "Во время сохранения Gist произошла ошибка"

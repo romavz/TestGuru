@@ -37,6 +37,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise', '~> 4.0'
 gem 'devise-i18n'
 
+# Enumerations
+gem 'enumerate_it', '~>3.0'
+
 # LOCALIZATION
 
 gem 'rails-i18n', '~> 5.1.0'

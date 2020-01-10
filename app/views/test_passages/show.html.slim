@@ -1,5 +1,5 @@
 span#test_passage
-  h1 = t('.header', test_title: @test_passage.test.title)
+  h1 = t('.header', test_title: @test_passage.test_title)
 
   b
     => "(#{@test_passage.progress})"
@@ -14,14 +14,19 @@ span#test_passage
         max_count: @test_passage.questions_count \
       }
 
+  div.d-flex.flex-row.mb-3
+    div.p-2
+      = t('.available_time')
+      | :
+    div.p-2#timer data-available-time-in-seconds="#{@test_passage.available_time_in_seconds}"
 
-  - options = { url: test_passage_path(@test_passage), method: :put, local: true }
+  - options = { id: "answers_form", url: test_passage_path(@test_passage), method: :put, local: true }
   = form_with options do |form|
     = form.collection_check_boxes :answer_ids, @test_passage.current_answers, :id, :body, include_hidden: false do |b|
       p
         = b.check_box id: "answer_ids_#{b.object.id}"
         = b.label
-    p
-      = link_to 'Gist Question', gist_test_passage_path(@test_passage), method: :post
-
-    = form.submit t('.next')
+    p.mt-3
+      = form.submit t('.next')
+  p
+    = link_to 'Gist Question', gist_test_passage_path(@test_passage), method: :post

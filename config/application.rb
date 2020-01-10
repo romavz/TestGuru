@@ -12,6 +12,7 @@ module TestGuru
     config.load_defaults 5.2
 
     config.time_zone = 'Moscow'
+    config.active_record.default_timezone = :local
     # locale в файле initializers/locale.rb
     # version в файле initializers/version.rb
 

@@ -1,4 +1,6 @@
 class Test < ApplicationRecord
+  has_enumeration_for :time_scale, with: TimeScale, required: true
+
   belongs_to :category
   belongs_to :author, class_name: "User", foreign_key: "author_id", inverse_of: :owned_tests
 
@@ -13,6 +15,7 @@ class Test < ApplicationRecord
   validates :title, presence: true
   validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :title, uniqueness: { scope: :level }
+  validates :time_limit, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   scope :select_by_category_title, ->(title) {
     joins(:category)

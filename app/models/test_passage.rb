@@ -47,6 +47,8 @@ class TestPassage < ApplicationRecord
   end
 
   def accept!(answer_ids)
+    return if completed?
+
     self.correct_questions += 1 if correct_answer?(answer_ids)
     step_to_next_question
     update_passed_state
@@ -59,6 +61,16 @@ class TestPassage < ApplicationRecord
 
   def correct_questions_ratio
     (correct_questions.to_f * P100 / test.questions.count).round(1)
+  end
+
+  def available_time_in_seconds
+    return 0 if completed?
+
+    available_time.to_i
+  end
+
+  def test_title
+    test.title
   end
 
   private
@@ -74,7 +86,25 @@ class TestPassage < ApplicationRecord
   def step_to_next_question
     return if completed?
 
-    self.current_question = questions.next_question(current_question.id)
+    self.current_question = time_over? ? nil : questions.next_question(current_question.id)
+  end
+
+  def time_over?
+    available_time.zero?
+  end
+
+  def available_time
+    return 0 if Time.now >= ending_time
+
+    ending_time - Time.now
+  end
+
+  def ending_time
+    @ending_time ||= created_at + time_limit
+  end
+
+  def time_limit
+    @time_limit ||= test.time_limit.send(test.time_scale)
   end
 
   def correct_answer?(answer_ids)

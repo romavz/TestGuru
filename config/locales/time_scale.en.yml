@@ -1,0 +1,7 @@
+en:
+  enumerations:
+    time_scale:
+      seconds: 'Seconds'
+      minutes: 'Minutes'
+      hours: 'Hours'
+      days: 'Days'

@@ -35,11 +35,24 @@ en:
     <<: *CATEGORY
     <<: *QUESTIONS
     <<: *IMAGE
-    answers:    "Ответы"
+    time_limit: "Time limit"
+    answers:    "Answers"
     name:       "Name"
     actions:    "Actions"
 
   shared:
+    time_scale:
+      seconds:
+        one:    "%{count} second"
+        other:  "%{count} seconds"
+        #
+        #
+      minutes:
+        one:    "%{count} minute"
+        other:  "%{count} minutes"
+        #
+        #
+
     errors:
       header:
         one:    "%{count} error detected"
@@ -58,6 +71,8 @@ en:
         title:        "Title"
         level:        "Level"
         category_id:  "Category"
+        time_limit:   "Time limit"
+        time_scale:   "Scale"
 
       question:
         text: "Text"
@@ -76,6 +91,7 @@ en:
     show:
       next:   "Next"
       header: "'%{test_title}' Test"
+      available_time: "Available time"
     gist:
       success: "<a href='%{link_to}'>Gist</a> was successfully created!"
       failure: "An arror accurred while saving gist"
